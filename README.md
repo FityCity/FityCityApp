@@ -1,5 +1,11 @@
 FityCityApp
 ===========
+
+Team
+====
+- Eric Adlam
+
+
 Overview
 ===========
 
