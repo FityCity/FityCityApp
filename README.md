@@ -6,6 +6,7 @@ Team
 - Eric Adlam
 - Romin Parekh
 - Yiming Zang(Vincent)
+- Viola Hu
 
 
 Overview
