@@ -4,7 +4,7 @@ FityCityApp
 Team
 ====
 - Eric Adlam
-- Yiming Zang(Vincent)
+- Yiming Zang(Vincent)**
 
 
 Overview
