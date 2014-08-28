@@ -4,11 +4,9 @@ FityCityApp
 Team
 ====
 - Eric Adlam
-<<<<<<< HEAD
 - Romin Parekh
-=======
-- Yiming Zang(Vincent)**
->>>>>>> origin/develop
+- Yiming Zang(Vincent)
+- Viola Hu
 
 
 Overview
@@ -83,7 +81,9 @@ Users can browse a list of vendors where they can spend points
 Can users also browse list of challenges?
 
 
+
 Team members:
 Yiming Zang(Vincent), Romin Parekh
 pimeng
+
 
