@@ -4,6 +4,7 @@ FityCityApp
 Team
 ====
 - Eric Adlam
+- Romin Parekh
 
 
 Overview
@@ -78,5 +79,5 @@ Users can browse a list of vendors where they can spend points
 Can users also browse list of challenges?
 
 Team members:
-Yiming Zang(Vincent),
+Yiming Zang(Vincent), Romin Parekh
 
