@@ -1,5 +1,13 @@
 FityCityApp
 ===========
+
+Team
+====
+- Eric Adlam
+- Romin Parekh
+- Yiming Zang(Vincent)
+
+
 Overview
 ===========
 
@@ -70,4 +78,5 @@ Should be able to control number of pushes per day
 Require selfies for verification (could be fun because people like taking selfies, and vendors could use selfie videos for advertising)
 Users can browse a list of vendors where they can spend points
 Can users also browse list of challenges?
+
 
