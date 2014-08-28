@@ -2,10 +2,8 @@ FityCityApp
 ===========
 Overview
 ===========
-App Name Ideas: 
-FityCity, Snack Jacks
 
-Main Objective: 
+Objective: 
 Facilitating random play (exercise) throughout Adelaide / CBD.
 
 Main Use Case: 
