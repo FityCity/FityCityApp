@@ -4,6 +4,7 @@ FityCityApp
 Team
 ====
 - Eric Adlam
+- Yiming Zang(Vincent)
 
 
 Overview
@@ -77,6 +78,5 @@ Require selfies for verification (could be fun because people like taking selfie
 Users can browse a list of vendors where they can spend points
 Can users also browse list of challenges?
 
-Team members:
-Yiming Zang(Vincent),
+
 
