@@ -1,0 +1,12 @@
+<ion-view title="Vendors" >
+  <ion-content class="has-header">
+    <ion-list>
+      <a ng-repeat="vendor in vendors" class="item item-thumbnail-left" href="#/tab/vendor/{{vendor.id}}">
+        <img src="{{vendor.image}}">
+        <h2>{{vendor.name}}</h2>
+        <p>{{vendor.address}}</p>
+        <p>{{vendor.distance}} km</p>
+      </a>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -11,5 +11,15 @@ angular.module('starter.controllers', [])
   $scope.friend = Friends.get($stateParams.friendId);
 })
 
+.controller('VendorsCtrl', function($scope, Vendors) {
+  $scope.vendors = Vendors.all();
+})
+
+.controller('VendorDetailCtrl', function($scope, $stateParams, Vendors, Activities) {
+  $scope.vendor = Vendors.get($stateParams.vendorId);
+  
+  $scope.cards = Activities.all();
+})
+
 .controller('AccountCtrl', function($scope) {
 });
