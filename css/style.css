@@ -1,1 +1,9 @@
 /* Empty. Add your own CSS if you like */
+
+.modality{
+	/*background-color:#eee;*/
+	height:100%;
+}
+.slider-pager-page i{
+	visibility: hidden;
+}
