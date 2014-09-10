@@ -3,6 +3,11 @@ angular.module('starter.controllers', [])
             $scope.login = function() {
                 $location.path("/tab/dash")
             }
+
+            $scope.loginTest=function ($scope){
+                alert("test")
+            }
+
         })
         .controller('DashCtrl', function($scope) {
         })

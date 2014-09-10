@@ -4,43 +4,72 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html ng-app="starter">
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/login.css" rel="stylesheet" type="text/css"/>
 
-        <link href="lib/ionic/css/ionic.css" rel="stylesheet" type="text/css"/>
-        <link href="css/style.css" rel="stylesheet" type="text/css"/>
-        <script src="lib/ionic/js/ionic.bundle.js" type="text/javascript"></script>
-        <script src="js/app.js" type="text/javascript"></script>
-        <script src="js/controllers.js" type="text/javascript"></script>
-        <script src="js/services.js" type="text/javascript"></script>
-    </head>
-    <body ng-controller="LoginCtrl">
-    <ion-header-bar class="bar-positive">
 
-        <h1 class="title">Fity City</h1>
+<body  ng-controller="LoginCtrl">
+    <script>
+                $(function() {
+                    $('#facebook-login').mousedown(function() {
+                        console.log("testse")
+                        $(this).attr("src", "img/buttons/facebook_login_active.png")
+                    })
+                    $('#facebook-login').mouseup(function() {
+                        $(this).attr("src", "img/buttons/facebook_login.png")
+                    })
+                    $('#google-login').mousedown(function() {
+                        $(this).attr("src", "img/buttons/google_login_active.png")
+                    })
+                    $('#google-login').mouseup(function() {
+                        $(this).attr("src", "img/buttons/google_login.png")
+                    })
+                    $('#twitter-login').mousedown(function() {
+                        $(this).attr("src", "img/buttons/twitter_login_active.png")
+                    })
+                    $('#twitter-login').mouseup(function() {
+                        $(this).attr("src", "img/buttons/twitter_login.png")
+                    })
+                })
+    </script>
+<ion-header-bar class="bar-positive">
 
-    </ion-header-bar>
-    <ion-content>
-        <div class="list list-inset">
-            <label class="item item-input">
-                <input type="text" placeholder="Username">
-            </label>
-            <label class="item item-input">
-                <input type="password" placeholder="Password">
-            </label>
-            <label class="item ">
+    <h1 class="title">Fit eCity</h1>
 
-            <button class="button  button-positive" style="align:center;width:100%;background-color: darkblue;border-radius: 5px" 
-                    ng-click="login()">Login</button>
-            </label>
-        </div>
-        <div style="width: 100%;text-align: center">
-            <button class="button  button-positive">Create New Account</button>
-        </div>
-        
-    </ion-content>
+</ion-header-bar>
+<ion-content>
+    <div class="upper-center">
+        <img src="img/logo/fitinthecity.png" width="20%" />
+        <p class="slogan">Start your challenges and get your points!</p>
+    </div>
+    <div class="list middle-center">
+        <img src="img/buttons/facebook_login.png" class='login-button' id='facebook-login' />
+        <br>
+        <img src="img/buttons/google_login.png" class='login-button' id='google-login' />
+        <br>
+        <img src="img/buttons/twitter_login.png" class='login-button' id="twitter-login" />
+    </div>
+
+
+
+
+    <!--  old login version      <div class="list list-inset">
+                <label class="item item-input">
+                    <input type="text" placeholder="Username">
+                </label>
+                <label class="item item-input">
+                    <input type="password" placeholder="Password">
+                </label>
+                <label class="item ">
+    
+                <button class="button  button-positive" style="align:center;width:100%;background-color: darkblue;border-radius: 5px" 
+                        ng-click="login()">Login</button>
+                </label>
+            </div>
+            <div style="width: 100%;text-align: center">
+                <button class="button  button-positive">Create New Account</button>
+            </div>-->
+
+</ion-content>
+
 </body>
 </html>
