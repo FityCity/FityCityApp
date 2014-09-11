@@ -5,18 +5,33 @@
  */
 
 angular.module('starter.loginService', [])
-.factory('Login', function() {
-var self = {}
-self.login = function(){
-    console.log("pressed")
-    if (!window.cordova) {
-                    var appId = prompt("Enter FB Application ID", "");
-                    facebookConnectPlugin.browserInit(appId);
+        .factory('LoginService', function() {
+            var self = {}
+            self.login = function(event) {
+                var target = event.target;
+                if (target.name == "facebook-login") {
+                    if (!window.cordova) {
+                        var appId = prompt("Enter FB Application ID", "");
+                        facebookConnectPlugin.browserInit(appId);
+                    }
+                    facebookConnectPlugin.login(["email"],
+                            function(response) {
+                                alert(JSON.stringify(response))
+                            },
+                            function(response) {
+                                alert(JSON.stringify(response))
+                            });
                 }
-                facebookConnectPlugin.login( ["email"], 
-                    function (response) { alert(JSON.stringify(response)) },
-                    function (response) { alert(JSON.stringify(response)) });
-};
+                else if(target.name=="google-login"){
+                    console.log("google")
+                }
+                else if(target.name=="twitter-login"){
+                    console.log("twitter")
+                }
+                
+            }
 
-return self;
-})
+
+
+            return self;
+        })

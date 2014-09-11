@@ -1,12 +1,5 @@
 angular.module('starter.controllers', [])
-        .controller('LoginCtrl', function($scope, $location,Login) {
-            $scope.mouseDown=Login;
-            $scope.login = function() {
-                $location.path("/tab/dash")
-            }
 
-    
-})
         .controller('DashCtrl', function($scope) {
         })
 

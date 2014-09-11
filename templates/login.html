@@ -182,9 +182,7 @@ console.log("facebookConnect")
 
     </script>
 <ion-header-bar class="bar-positive">
-
     <h1 class="title">Fit eCity</h1>
-
 </ion-header-bar>
 <ion-content>
 
@@ -193,32 +191,13 @@ console.log("facebookConnect")
         <p class="slogan">Start your challenges and get your points!</p>
     </div>
     <div class="list middle-center">
-        <img src="img/buttons/facebook_login.png" ng-mousedown="mouseDown.login()"  class='login-button' id='facebook-login' />
+        <img src="img/buttons/facebook_login.png" ng-click="login($event)"  class='login-button' name='facebook-login' />
         <br>
-        <img src="img/buttons/google_login.png" class='login-button' id='google-login' />
+        <img src="img/buttons/google_login.png" ng-click="login($event)" class='login-button' name='google-login' />
         <br>
-        <img src="img/buttons/twitter_login.png" class='login-button' id="twitter-login" />
+        <img src="img/buttons/twitter_login.png" ng-click="login($event)" class='login-button' name="twitter-login" />
     </div>
 
-
-
-
-    <!--  old login version      <div class="list list-inset">
-                <label class="item item-input">
-                    <input type="text" placeholder="Username">
-                </label>
-                <label class="item item-input">
-                    <input type="password" placeholder="Password">
-                </label>
-                <label class="item ">
-    
-                <button class="button  button-positive" style="align:center;width:100%;background-color: darkblue;border-radius: 5px" 
-                        ng-click="login()">Login</button>
-                </label>
-            </div>
-            <div style="width: 100%;text-align: center">
-                <button class="button  button-positive">Create New Account</button>
-            </div>-->
 
 </ion-content>
 
