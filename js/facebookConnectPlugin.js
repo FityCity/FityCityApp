@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+/*
+ * @author Ally Ogilvie
+ * @copyright Wizcorp Inc. [ Incorporated Wizards ] 2014
+ * @file - facebookConnectPlugin.js
+ * @about - JavaScript interface for PhoneGap bridge to Facebook Connect SDK
+ *
+ *
+ */
 
-
-<body  ng-controller="LoginCtrl">
-    <script type="text/javascript">
-                        if (!window.cordova) {
+if (!window.cordova) {
 // This should override the existing facebookConnectPlugin object created from cordova_plugins.js
-console.log("facebookConnect")
     var facebookConnectPlugin = {
 
         getLoginStatus: function (s, f) {
@@ -179,48 +177,3 @@ console.log("facebookConnect")
     }());
 
 }
-
-    </script>
-<ion-header-bar class="bar-positive">
-
-    <h1 class="title">Fit eCity</h1>
-
-</ion-header-bar>
-<ion-content>
-
-    <div class="upper-center">
-        <img src="img/logo/fitinthecity.png" width="20%" />
-        <p class="slogan">Start your challenges and get your points!</p>
-    </div>
-    <div class="list middle-center">
-        <img src="img/buttons/facebook_login.png" ng-mousedown="mouseDown.login()"  class='login-button' id='facebook-login' />
-        <br>
-        <img src="img/buttons/google_login.png" class='login-button' id='google-login' />
-        <br>
-        <img src="img/buttons/twitter_login.png" class='login-button' id="twitter-login" />
-    </div>
-
-
-
-
-    <!--  old login version      <div class="list list-inset">
-                <label class="item item-input">
-                    <input type="text" placeholder="Username">
-                </label>
-                <label class="item item-input">
-                    <input type="password" placeholder="Password">
-                </label>
-                <label class="item ">
-    
-                <button class="button  button-positive" style="align:center;width:100%;background-color: darkblue;border-radius: 5px" 
-                        ng-click="login()">Login</button>
-                </label>
-            </div>
-            <div style="width: 100%;text-align: center">
-                <button class="button  button-positive">Create New Account</button>
-            </div>-->
-
-</ion-content>
-
-</body>
-</html>

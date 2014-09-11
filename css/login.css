@@ -35,12 +35,6 @@ body{
 }
 .login-button{
     cursor:  pointer;
-    background: url('img/buttons/facebook_login.png') no-repeat;
     margin-top: 15px;
 
-}
-
-.login-button:hover{
-    cursor:  pointer;
-    background: url('img/buttons/facebook_login_hover.png');
 }
