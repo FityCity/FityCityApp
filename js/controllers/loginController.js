@@ -5,11 +5,11 @@
  */
 
 angular.module('starter.controllers', [])
-        .controller('LoginCtrl', function($scope, $location,LoginService) {
-            $scope.login=LoginService.login;
-            $scope.afterlogin = function() {
-                $location.path("/tab/dash")
-            }
+        .controller('LoginCtrl', function($scope, $location, LoginService,TokenService) {
+            $scope.login = LoginService.login;
+            $scope.mousedown = LoginService.mousedown;
+            $scope.mouseup = LoginService.mouseup;
+            console.log("test")
+            console.log(TokenService.getToken)
 
-    
-})
+        });

@@ -1,5 +1,14 @@
 angular.module('starter.controllers', [])
+.controller('LoginCtrl', function($scope, $location, LoginService,TokenService) {
+            $scope.login = LoginService.login;
+            $scope.mousedown = LoginService.mousedown;
+            $scope.mouseup = LoginService.mouseup;
 
+//            $scope.afterlogin = function() {
+//                $location.path("/tab/dash")
+//            }
+
+        })
         .controller('DashCtrl', function($scope) {
         })
 
@@ -20,5 +29,7 @@ angular.module('starter.controllers', [])
             $scope.cards = Activities.all();
         })
 
-        .controller('AccountCtrl', function($scope) {
+        .controller('AccountCtrl', function($scope,TokenService,FacebookService) {
+            $scope.token=TokenService.getToken();
+            $scope.getUserProfile=FacebookService.getUserProfile;
         });
