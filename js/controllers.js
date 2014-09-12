@@ -1,6 +1,7 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {
+.controller('DashCtrl', function($scope, PushProcessingService) {
+  $scope.regId = PushProcessingService.getId();
 })
 
 .controller('FriendsCtrl', function($scope, Friends) {
@@ -17,8 +18,8 @@ angular.module('starter.controllers', [])
 
 .controller('VendorDetailCtrl', function($scope, $stateParams, Vendors, Activities) {
   $scope.vendor = Vendors.get($stateParams.vendorId);
-  
   $scope.cards = Activities.all();
+
 })
 
 .controller('AccountCtrl', function($scope) {
