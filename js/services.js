@@ -33,24 +33,32 @@ angular.module('starter.services', [])
     { id: 0, 
       name: 'Bliss Organic',
       address: '11 Ebenezer Pl',
-      image:'img/vendors/bliss_organic.jpg'
+      image:'img/vendors/bliss_organic.jpg',
+      distance:0.1
     },
     { id: 1, 
       name: 'Cafe Troppo',
       address: '7 Compton St',
-      image:'img/vendors/bliss_organic.jpg'},
+      image:'img/vendors/cafe_troppo.jpg',
+      distance:0.3
+    },
     { id: 2, 
       name: 'Hey Jupiter',
       address: '11 Ebenezer Pl',
-      image:'img/vendors/bliss_organic.jpg' },
+      image:'img/vendors/hey_jupiter.jpg',
+      distance:0.8 },
     { id: 3, 
       name: "Paddy's Lantern",
       address: '11 Ebenezer Pl',
-      image:'img/vendors/bliss_organic.jpg' },
+      image:'img/vendors/paddys_lantern.jpg',
+      distance:1.5 },
+      
     { id: 4, 
       name: "Sad Cafe",
       address: '11 Ebenezer Pl',
-      image:'img/vendors/bliss_organic.jpg' }
+      image:'img/vendors/sad_cafe.jpg',
+      distance:2.1 },
+      
   ];
 
   return {
@@ -60,6 +68,40 @@ angular.module('starter.services', [])
     get: function(vendorId) {
       // Simple index lookup
       return vendors[vendorId];
+    }
+  }
+})
+
+.factory('Activities', function($sce) {
+  // Might use a resource here that returns a JSON array
+
+  // Some fake testing data
+  var activities = [
+    { id: 0, 
+      name: 'Do: 15 Jumping Jacks',
+      video:$sce.trustAsResourceUrl('https://www.youtube.com/embed/UpH7rm0cYbM')
+    },
+    { id: 1, 
+      name: 'Do: 10 Squats',
+      video:$sce.trustAsResourceUrl('http://www.youtube.com/embed/UXJrBgI2RxA')},
+    { id: 2, 
+      name: 'Do: 10 Mountain Climbers',
+      video:$sce.trustAsResourceUrl('http://www.youtube.com/embed/nmwgirgXLYM')},
+    { id: 3, 
+      name: "Do: 10 Step Jumps",
+      video:$sce.trustAsResourceUrl('http://www.youtube.com/embed/TPJhsE0QeD8')},
+    { id: 4, 
+      name: "Do: 15 Ski Jumps",
+      video:$sce.trustAsResourceUrl('http://www.youtube.com/embed/yk7yXdzabxY')}
+  ];
+
+  return {
+    all: function() {
+      return activities;
+    },
+    get: function(activityId) {
+      // Simple index lookup
+      return activities[activityId];
     }
   }
 });
@@ -72,7 +114,7 @@ angular.module('pushnotification', [])
       var registrationId = "";
 
         function onDeviceReady() {
-            alert("Device Ready");
+            // alert("Device Ready");
             console.info('NOTIFY  Device is ready.  Registering with GCM server');
             //register with google GCM server
             var pushNotification = window.plugins.pushNotification;
@@ -82,11 +124,11 @@ angular.module('pushnotification', [])
               {"senderID":"756743545712","ecb":"onNotificationGCM"});
         }
         function gcmSuccessHandler(result) {
-            alert(result)
+            // alert(result)
             console.info('NOTIFY  pushNotification.register succeeded.  Result = '+result)
         }
         function gcmErrorHandler(error) {
-            alert(error)
+            // alert(error)
             console.error('NOTIFY  '+error);
         }
         return {
@@ -105,8 +147,8 @@ angular.module('pushnotification', [])
                 //         console.error('NOTIFY  Registration failed');
                 //     }
                 // });
-                alert("got ID");
-                alert(id);
+                // alert("got ID");
+                // alert(id);
                 registrationId = id;
             }, 
             //unregister can be called from a settings area.
@@ -160,7 +202,7 @@ function onNotificationGCM(e) {
                 // if the notification contains a soundname, play it.
                 //var my_media = new Media(&quot;/android_asset/www/&quot;+e.soundname);
                 //my_media.play();
-                alert(e.payload.message);
+                // alert(e.payload.message);
             }
             else
             {   
