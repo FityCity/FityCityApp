@@ -4,17 +4,23 @@
   The FriendsCtrl pulls data from the Friends service (service.js)
   The Friends service returns an array of friend data
 -->
-<ion-view title="{{vendor.name}}">
+<ion-view title="Details">
   <ion-content has-header="true" padding="false">
   	<ion-list>
-  		<div class="item item-avatar">
-		    <img src="{{vendor.image}}">
-	        <h2>{{vendor.name}}</h2>
-	        <p>{{vendor.address}} <span style="float:right;">{{vendor.distance}} km</span></p>
-		  </div>
+ 	    <div class="item item-avatar">
+  		    <img src="{{vendor.image}}">
+  	        <h2>{{vendor.name}}</h2>
+	        <p>{{vendor.address}}</p>
+		</div> 
+		<div class="item item-divider">Offers</div>
+		<ion-list ng-repeat="x in vendor.offers">
+          <div class="item">
+            <p class="ion-coffee"> {{x.name}}<span class="ion-pricetag" style="float:right"> {{x.points}}points</span></p> 
+          </div>
+  	    </ion-list>
   	</ion-list>
 
-  	<ion-slide-box on-slide-changed="slideHasChanged($index)">
+  	<ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="true" does-continue="true">
 	  <ion-slide ng-repeat="card in cards">
         <div class="list card">
           <div class="item item-divider">
@@ -26,20 +32,42 @@
 		  <div class="item tabs tabs-secondary tabs-icon-left">
 		    <a class="tab-item" ng-click="takePicture">
 		      <i class="icon ion-thumbsup"></i>
-		      Sweat
+		      sweat
 		    </a>
-		    <a class="tab-item" href="#">
+		    <a class="tab-item" href="#/tab/vendor/0/1">
 		      <i class="icon ion-thumbsdown"></i>
-		      No Sweat
+		      See others doing it
 		    </a>
 		  </div>
 		</div>
 	  </ion-slide>
 	</ion-slide-box>
 
-	<div class="list card" ng-if="photo !== ''">
+
+<!-- 	<div class="list card" ng-if="photo !== ''">
 	  <img class="full-image" src="{{photo}}">
-	</div>
+	</div> -->
+
+	<!-- <div ng-repeat="i in otherscards">
+		{{i}}
+	</div> -->
+	<!-- new by yiwei -->
+
+
+<!--     <ion-slide-box on-slide-changed="slideHasChanged($index)">
+	  <ion-slide ng-repeat="i in otherscards">
+        <div class="list card">
+          <div class="item item-divider">
+		    Someone Already Makes It!
+		  </div>
+	      <div class="item item-body modality">		    
+	        <img class="full-image" src="{{i.image}}">
+		  </div> 
+		</div>
+	  </ion-slide>
+	</ion-slide-box> -->
+
+
 
   </ion-content>
 </ion-view>

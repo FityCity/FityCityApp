@@ -1,10 +1,7 @@
-var app = angular.module('starter.controllers', []);
+angular.module('starter.controllers', [])
 
-// LOGIN CONTROLLERS
-app.controller('LoginCtrl', function($scope, $location, LoginService,TokenService) {
-    $scope.login = LoginService.login;
-    $scope.mousedown = LoginService.mousedown;
-    $scope.mouseup = LoginService.mouseup;
+.controller('DashCtrl', function($scope) {
+})
 
     // $scope.afterlogin = function() {
     //    $location.path("/tab/dash")
@@ -20,43 +17,36 @@ app.controller('LoginCtrl', function($scope, $location, LoginService,TokenServic
 app.controller('AccountCtrl', function($scope,TokenService,FacebookService) {
     $scope.token=TokenService.getToken();
     $scope.getUserProfile=FacebookService.getUserProfile;
+	$scope.vendors = Vendors.all();
 });
+// .controller('FriendsCtrl', function($scope, Friends) {
+//   $scope.friends = Friends.all();
+// })
 
+// .controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
+//   $scope.friend = Friends.get($stateParams.friendId);
+// })
 
-// TAB CONTROLLERS
-        
-app.controller('DashCtrl', function($scope) {});
+.controller('VendorsCtrl', function($scope, Vendors) {
+  $scope.vendors = Vendors.all();
+})
 
-app.controller('FriendsCtrl', function($scope, Friends) {
-    $scope.friends = Friends.all();
-});
+//.controller('AccountCtrl', function($scope, Vendors) {
+	// $scope.vendorPoints = VendorPoints.all();
+//	$scope.vendors = Vendors.all();
+//})
 
-app.controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
-    $scope.friend = Friends.get($stateParams.friendId);
-});
-
-app.controller('VendorsCtrl', function($scope, Vendors) {
-    $scope.vendors = Vendors.all();
-});
-
-app.controller('VendorDetailCtrl', function($scope, $stateParams, Vendors, Activities) {
+.controller('VendorDetailCtrl', function($scope, $stateParams, Vendors, Activities, ActivityOthers) {
   $scope.vendor = Vendors.get($stateParams.vendorId);
+  $scope.activity = Activities.get($stateParams.activityId);
+  $scope.otherscards = ActivityOthers.all();
   $scope.cards = Activities.all();
-  $scope.photo = "";
-  $scope.takePicture = function() {
-  navigator.camera.getPicture(function(imageURI) {
-
-        // imageURI is the URL of the image that we can use for
-        // an <img> element or backgroundImage.
-        $scope.photo = imageURI;
-
-      }, function(err) {
-
-        // Ruh-roh, something bad happened
-
-      }, cameraOptions);
-    }
-
 });
 
+// //new by yiwei
+// .controller('ActivityDetailCtrl', function($scope, $stateParams, Activities, ActivityOthers) {
+//   $scope.activity = Activities.get($stateParams.activitiesId);
 
+//   $scope.otherscards = ActivityOthers.all();
+//   console.log($scope.otherscards)
+//   });
