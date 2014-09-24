@@ -7,3 +7,6 @@
 .slider-pager-page i{
 	visibility: hidden;
 }
+.tabs-verytop > .tabs, .tabs.tabs-top{
+	top: 0px;
+}

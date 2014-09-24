@@ -1,5 +1,19 @@
 <ion-view title="Account">
-  <ion-content class="has-header padding">
-    <h1>Account</h1>
+
+  <ion-content class="has-header">
+      <div class="item item-thumbnail-left">
+          <img src="img/account/jen.png">
+          <h2>Jen Selter </h2>
+          <i class="icon ion-female"> follow me</i>
+
+      </div> 
+      <h4>Points Distribution</h4>
+      <ion-list>
+        <a ng-repeat="x in vendors" class="item item-thumbnail-left" >
+        <img src="{{x.image}}">
+        <h2>{{x.name}}</h2>
+        <p>{{x.points}} points useable</p>
+      </a>
+    </ion-list>
   </ion-content>
 </ion-view>
