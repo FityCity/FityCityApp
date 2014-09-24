@@ -9,6 +9,11 @@ app.controller('LoginCtrl', function($scope, $location, LoginService,TokenServic
     // $scope.afterlogin = function() {
     //    $location.path("/tab/dash")
     // }
+     $scope.fakeLogin = function(){
+              console.log("login")
+              $location.path('/tab/vendors')
+            }
+
 
 });
 

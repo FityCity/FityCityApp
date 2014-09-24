@@ -12,4 +12,9 @@ angular.module('starter.controllers', [])
             console.log("test")
             console.log(TokenService.getToken)
 
+            $scope.fakeLogin = function(){
+            	console.log("login")
+            	$location.path('/tab/dash')
+            }
+
         });
