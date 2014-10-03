@@ -1,0 +1,19 @@
+<div class="modal">
+  <ion-header-bar>
+    <h1 class="title">What {{vendor.name}} offers</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="close()">Close</button>
+    </div>
+  </ion-header-bar>
+
+  <ion-content>
+    <ion-list ng-repeat="x in vendor.menu">
+      <div class="item item-thumbnail item item-thumbnail-left">
+          <img src="{{x.image}}">
+            <h2>{{x.name}}</h2>
+            <p>$ {{x.price}}</p>
+      </div> 
+    </ion-list>
+  </ion-content>
+</div>
+

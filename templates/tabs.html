@@ -1,0 +1,23 @@
+<!-- 
+  Create tabs with an icon and label, using the tabs-positive style. 
+  Each tab's child <ion-nav-view> directive will have its own 
+  navigation history that also transitions its views in and out.
+-->
+<!--  <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false" does-continue="true"> 
+ <ion-slide> -->
+<ion-tabs class="tabs-striped tabs-icon-top tabs-background-positive tabs-light"> 
+
+  <ion-tab title="Vendors" icon="icon ion-heart" href="#/tab/vendors">
+   Vendors <ion-nav-view name="tab-vendors"></ion-nav-view>
+  </ion-tab>
+
+
+  
+  <ion-tab title="Account" icon="icon ion-gear-b" href="#/tab/account">
+    <ion-nav-view name="tab-account"></ion-nav-view>
+  </ion-tab>
+
+
+</ion-tabs>
+<!-- </ion-slide>
+</ion-slide-box> -->

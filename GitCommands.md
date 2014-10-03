@@ -9,7 +9,7 @@ git config --global user.email "Your Email Address"
 This will create a new folder in whatever directory you run the command:
 (Url can be found in the github repository)
 
-git clone <url>
+`git clone <url>`
 
 
 How to create a branch in local computer?
@@ -23,3 +23,11 @@ Work Flow:
 4. Push your develop to the main Repository Develop
 
 ****
+
+#Add Name Exercise
+
+###Setup
+`git clone <url>`
+`git branch develop master`
+
+###Add Name

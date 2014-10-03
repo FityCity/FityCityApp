@@ -1,0 +1,20 @@
+<!-- <ion-view title="Friends">
+  <ion-content class="has-header">
+    <ion-list>
+      <ion-item ng-repeat="friend in friends" type="item-text-wrap" href="#/tab/friend/{{friend.id}}">
+        {{friend.name}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view> -->
+<ion-view title="Vendors" class="bar bar-header bar-calm">
+  <ion-content class="has-header">
+    <ion-list>
+      <ion-item ng-repeat="vendor in vendors" type="item-thumbnail-left" href="#/tab/vendor/{{vendor.id}}">
+        <img src="{{vendor.image}}">
+
+        {{vendor.name}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
