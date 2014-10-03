@@ -1,9 +1,12 @@
 /* Empty. Add your own CSS if you like */
 
-/*.modality{
+.modality{
+	/*background-color:#eee;*/
 	height:100%;
 }
 .slider-pager-page i{
 	visibility: hidden;
 }
-*/
+.tabs-verytop > .tabs, .tabs.tabs-top{
+	top: 0px;
+}
