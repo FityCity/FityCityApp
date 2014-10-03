@@ -1,43 +1,43 @@
 <ion-view title="Details">
-
   <ion-content has-header="true" padding="false">
-        <ion-list>
-            <div class="item item-avatar" ng-click="popup()">
-                    <img src="{{vendor.image}}">
-                <h2>{{vendor.name}}</h2>
-                <p>{{vendor.address}}</p>
-                </div>
-                <div class="item item-divider">Offers</div>
-                <ion-list ng-repeat="x in vendor.offers">
+  	<ion-list>
+ 	    <div class="item item-avatar" ng-click="popup()">
+  		    <img src="{{vendor.image}}">
+  	        <h2>{{vendor.name}}</h2>
+	        <p>{{vendor.address}}</p>
+		</div> 
+		<div class="item item-divider">Offers</div>
+		<ion-list ng-repeat="x in vendor.offers">
           <div class="item">
-            <p class="ion-coffee"> {{x.name}}<span class="ion-pricetag" style="float:right"> {{x.points}}points</span></p>
+            <p class="ion-coffee"> {{x.name}}<span class="ion-pricetag" style="float:right"> {{x.points}}points</span></p> 
           </div>
-            </ion-list>
-        </ion-list>
+  	    </ion-list>
+  	</ion-list>
 
-        <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="true" does-continue="true">
-          <ion-slide ng-repeat="card in cards">
+  	<ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="true" does-continue="true">
+	  <ion-slide ng-repeat="card in cards">
         <div class="list card">
           <div class="item item-divider">
-                    {{card.name}}
-                  </div>
-              <div class="item item-body modality">
-                    <h2>
-                      {{card.prompt}}
-                    </h2>
-                <img class="full-image" src="{{card.image}}">
-                  </div>
-                  <div class="item tabs tabs-secondary tabs-icon-left">
-                    <a class="tab-item" href="#">
-                      <i class="icon ion-thumbsup"></i>
-                      sweat
-                    </a>
-                    <a class="tab-item" href="#/tab/vendor/0/1">
-                      <i class="icon ion-thumbsdown"></i>
-                      See others doing it
-                    </a>
-                  </div>
-                </div>
-          </ion-slide>
+		    {{card.name}}
+		  </div>
+	      <div class="item item-body modality">
+		    <h2>
+		      {{card.prompt}}
+		    </h2>
+	        <img class="full-image" src="{{card.image}}">
+		  </div>
+		  <div class="item tabs tabs-secondary tabs-icon-left">
+		    <a ng-click = "getVideo()" class="tab-item" href="#">
+		      <i class="icon ion-thumbsup"></i>
+		      sweat
+		    </a>
+		    <a class="tab-item" href="#/tab/vendor/0/1">
+		      <i class="icon ion-thumbsdown"></i>
+		      See others doing it
+		    </a>
+		  </div>
+		</div>
+	  </ion-slide>
+	</ion-slide-box>
   </ion-content>
 </ion-view>

@@ -5,9 +5,13 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-app = angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ionic.contrib.ui.cards', 'pushnotification']);
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ionic.contrib.ui.cards'])
+//
+.config(function($compileProvider){
+  $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
+})
 
-app.run(function($ionicPlatform) {
+.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -35,37 +39,6 @@ app.run(function($ionicPlatform) {
       abstract: true,
       templateUrl: "templates/tabs.html"
     })
-
-    // Each tab has its own nav history stack:
-
-    // .state('tab.dash', {
-    //   url: '/dash',
-    //   views: {
-    //     'tab-dash': {
-    //       templateUrl: 'templates/tab-dash.html',
-    //       controller: 'DashCtrl'
-    //     }
-    //   }
-    // })
-
-    // .state('tab.friends', {
-    //   url: '/friends',
-    //   views: {
-    //     'tab-friends': {
-    //       templateUrl: 'templates/tab-friends.html',
-    //       controller: 'FriendsCtrl'
-    //     }
-    //   }
-    // })
-    // .state('tab.friend-detail', {
-    //   url: '/friend/:friendId',
-    //   views: {
-    //     'tab-friends': {
-    //       templateUrl: 'templates/friend-detail.html',
-    //       controller: 'FriendDetailCtrl'
-    //     }
-    //   }
-    // })
 
     .state('tab.vendors', {
       url: '/vendors',
@@ -111,9 +84,3 @@ app.run(function($ionicPlatform) {
 
 });
 
-app.run(function(PushProcessingService) {
-   //run once for the app
-   console.log("PushProcessingService is initializing")
-   PushProcessingService.initialize();
-   console.log("PushProcessingService is initialized")
-});
