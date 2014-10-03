@@ -1,10 +1,5 @@
-<!--
-  This template loads for the 'tab.friend-detail' state (app.js)
-  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
-  The FriendsCtrl pulls data from the Friends service (service.js)
-  The Friends service returns an array of friend data
--->
 <ion-view title="Details">
+ 
   <ion-content has-header="true" padding="false">
   	<ion-list>
  	    <div class="item item-avatar" ng-click="popup()">
@@ -30,10 +25,10 @@
 		    <h2>
 		      {{card.prompt}}
 		    </h2>
-	        <img class="full-image" ng-src="{{card.image}}">
+	        <img class="full-image" src="{{card.image}}">
 		  </div>
 		  <div class="item tabs tabs-secondary tabs-icon-left">
-		    <a ng-click="getPhoto()" class="tab-item" href="#">
+		    <a class="tab-item" href="#">
 		      <i class="icon ion-thumbsup"></i>
 		      sweat
 		    </a>
@@ -44,27 +39,5 @@
 		  </div>
 		</div>
 	  </ion-slide>
-	</ion-slide-box>
- 
-	<!-- <div ng-repeat="i in otherscards">
-		{{i}}
-	</div> -->
-	<!-- new by yiwei -->
- 
- 
-<!--     <ion-slide-box on-slide-changed="slideHasChanged($index)">
-	  <ion-slide ng-repeat="i in otherscards">
-        <div class="list card">
-          <div class="item item-divider">
-		    Someone Already Makes It!
-		  </div>
-	      <div class="item item-body modality">		    
-	        <img class="full-image" src="{{i.image}}">
-		  </div> 
-		</div>
-	  </ion-slide>
-	</ion-slide-box> -->
- 
- 
   </ion-content>
 </ion-view>
