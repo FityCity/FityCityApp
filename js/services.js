@@ -18,29 +18,40 @@ angular.module('starter.services', [])
   }
 }])
 
-.factory('Activities', function(){
-  var activities = [
-    { id: 0,
-      name:"Jumping Jacks",
-      image:"img/modalities/jumping_jacks.gif",
-      prompt:"Do 15 jumping jacks"
-    },
-    { id: 1,
-      name:"Push ups",
-      image:"img/modalities/push_ups.gif",
-      prompt:"Do 15 push ups"
-    },
-    { id: 2,
-      name:"Knee to nose",
-      image:"img/modalities/knee-cross-crunch-ss.jpg",
-      prompt:"Hold your knee to your nose for 15 seconds"
-    },
-    { id: 3,
-      name:"Pull ups",
-      image:"img/modalities/chin-ups.gif",
-      prompt:"Do 5 pull ups"
-    },
-  ]
+.factory('Activities', function($http, $sce){
+  // var activities = [
+  //   { id: 0,
+  //     name:"Jumping Jacks",
+  //     image:"img/modalities/jumping_jacks.gif",
+  //     prompt:"Do 15 jumping jacks"
+  //   },
+  //   { id: 1,
+  //     name:"Push ups",
+  //     image:"img/modalities/push_ups.gif",
+  //     prompt:"Do 15 push ups"
+  //   },
+  //   { id: 2,
+  //     name:"Knee to nose",
+  //     image:"img/modalities/knee-cross-crunch-ss.jpg",
+  //     prompt:"Hold your knee to your nose for 15 seconds"
+  //   },
+  //   { id: 3,
+  //     name:"Pull ups",
+  //     image:"img/modalities/chin-ups.gif",
+  //     prompt:"Do 5 pull ups"
+  //   },
+  // ]
+
+  var activities = {};
+
+  var requestActivity = $http.get('http://fitecity.herokuapp.com/activities');
+  requestActivity.then(function(res){
+    angular.forEach(res.data, function(item, index){
+      console.log(item);
+      item.videoUrl = $sce.trustAsResourceUrl("http://www.youtube.com/embed/" + item.youtube_id);
+      activities[item._id] = item;
+    })
+  });
 
   return {
     all: function(){

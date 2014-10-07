@@ -18,13 +18,14 @@
 	  <ion-slide ng-repeat="card in cards">
         <div class="list card">
           <div class="item item-divider">
-		    {{card.name}}
+		    {{card.title}}
 		  </div>
 	      <div class="item item-body modality">
 		    <h2>
-		      {{card.prompt}}
+		      {{card.instructions}}
 		    </h2>
-	        <img class="full-image" src="{{card.image}}">
+	        <!-- <img class="full-image" src="{{card.image}}"> -->
+	        <iframe width="100%" src="{{card.videoUrl}}" frameborder="0" allowfullscreen></iframe>
 		  </div>
 		  <div class="item tabs tabs-secondary tabs-icon-left">
 		    <a ng-click = "getVideo()" class="tab-item" href="#">
