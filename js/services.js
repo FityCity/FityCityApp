@@ -47,9 +47,9 @@ angular.module('starter.services', [])
   var requestActivity = $http.get('http://fitecity.herokuapp.com/activities');
   requestActivity.then(function(res){
     angular.forEach(res.data, function(item, index){
-      console.log(item);
-      item.videoUrl = $sce.trustAsResourceUrl("http://www.youtube.com/embed/" + item.youtube_id);
+      item['imgSrc'] = "http://img.youtube.com/vi/"+item.youtube_id+"/maxresdefault.jpg";
       activities[item._id] = item;
+      console.log(item);
     })
   });
 
