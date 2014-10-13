@@ -322,4 +322,42 @@ angular.module('starter.services', [])
       return vendors[vendorId];
     }
   }
+})
+
+.factory('Events', function() {
+  // Might use a resource here that returns a JSON array
+
+  // Some fake testing data
+  var events = [
+    {
+      title:"Personal Styling Sessions - Hyde Park",
+      description:"Have you ever wanted to go shopping with your very own personal stylist? Learn how to dress well on any budget with a Personal Styling Session from Clothed.",
+      image_url:"http://www.adelaidecitycouncil.com/images/made/assets/whats-on/designerexchange15_420_205_88_int_s_c1_c.jpeg",
+      date:"Every Saturday",
+      time:"11:00am - 2:00pm",
+      venue:"Starts at King William Road",
+      cost:39.00,
+      category:"Sport & Leisure"
+    },
+    {
+      title:"Children's Photography Course",
+      description:"This course is aimed at children aged 7-13 to give them a taste of how fun photography can be and to instill a passion in them for creativity and art.",
+      image_url:"http://www.adelaidecitycouncil.com/images/made/assets/whats-on/10525884_10204270497753284_3951162239879703776_n3_420_205_88_int_s_c1_c.jpeg",
+      date:"Oct 8, 2014",
+      time:"11:00am - 2:00pm",
+      venue:"Botanic Gardens",
+      cost:0.00,
+      category:"Presentations & Workshops"
+    }
+  ];
+
+  return {
+    all: function() {
+      return events;
+    },
+    get: function(eventId) {
+      // Simple index lookup
+      return events[eventId];
+    }
+  }
 });
