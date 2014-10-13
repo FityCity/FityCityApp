@@ -79,6 +79,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     })
 
+    .state('tab.events', {
+      url: '/events',
+      views: {
+        'tab-events': {
+          templateUrl: 'templates/tab-events.html',
+          controller: 'EventsCtrl'
+        }
+      }
+    })
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/vendors');
 

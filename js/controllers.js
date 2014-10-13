@@ -8,6 +8,11 @@ angular.module('starter.controllers', [])
   $scope.vendors = Vendors.all();
 })
 
+.controller('EventsCtrl', function($scope, Events) {
+  $scope.events = Events.all();
+
+})
+
 .controller('AccountCtrl', function($scope, Vendors) {
   // $scope.vendorPoints = VendorPoints.all();
   $scope.vendors = Vendors.all();
