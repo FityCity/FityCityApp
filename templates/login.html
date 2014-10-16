@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<script>
+    // Bake in the JS SDK
+    (function() {
+        if (!window.FB) {
+            var e = document.createElement('script');
+            e.src = document.location.protocol + '//connect.facebook.net/en_US/sdk.js';
+            e.async = true;
+            document.getElementById('fb-root').appendChild(e);
+        }
+    }());
+</script>
+<body  ng-controller="LoginCtrl">
+
+<ion-header-bar class="bar-positive">
+    <h1 class="title">Fit eCity</h1>
+</ion-header-bar>
+<ion-content>
+
+    <div class="upper-center">
+        <img src="img/logo/fitinthecity.png" width="20%" />
+        <p class="slogan">Start your challenges and get your points!</p>
+    </div>
+    <div class="list middle-center">
+        
+        <button class="button button-positive button-small button-shadow-blue " style="width:180px;text-align: left" 
+                name="facebook" ng-click="login($event)">
+            <i class="icon ion-social-facebook" style="margin-left:15px;margin-right: 21px;"></i>Sign in with Facebook
+        </button>
+        <p></p>
+        <button class="button button-assertive button-small button-shadow-red" style="width:180px;text-align: left"
+                name="google" ng-click="login($event)" >
+            <i class="icon ion-social-googleplus" style="margin:0px 15px;"></i>Sign in with Google+
+        </button>
+        <p></p>
+        <button class="button button-calm button-small button-shadow-lightblue" style="width:180px;text-align: left"
+                name="twitter" ng-click="login($event)">
+            <i class="icon ion-social-twitter" style="margin:0px 15px;"></i>Sign in with Twitter
+        </button>
+    </div>
+
+
+</ion-content>
+
+</body>
+</html>
