@@ -1,29 +1,22 @@
 angular.module('starter.services', [])
 
-/**
- * A simple example service that returns some data.
- */
-// .factory('Friends', function() {
-//   // Might use a resource here that returns a JSON array
 
-//   // Some fake testing data
-//   var friends = [
-//     { id: 0, name: 'Scruff McGruff' },
-//     { id: 1, name: 'G.I. Joe' },
-//     { id: 2, name: 'Miss Frizzle' },
-//     { id: 3, name: 'Ash Ketchum' }
-//   ];
-
-//   return {
-//     all: function() {
-//       return friends;
-//     },
-//     get: function(friendId) {
-//       // Simple index lookup
-//       return friends[friendId];
-//     }
-//   }
-// })
+.factory('Camera', ['$q', function($q) {
+ 
+  return {
+    getVideo: function(options) {
+      var q = $q.defer();
+      //navigator.capture.captureVideo(captureSuccess, captureError, options);
+      navigator.device.capture.captureVideo(function(result){
+        q.resolve(result);
+      },function(err){
+        q.reject(err);
+      },options);
+      
+      return q.promise;
+    }
+  }
+}])
 
 .factory('Activities', function(){
   var activities = [
@@ -89,43 +82,6 @@ angular.module('starter.services', [])
     }
   })
 
-// .factory('VendorPoints', function(){
-//     var vendorPoints=[
-//         { id:0,
-//           image:'img/vendors/bliss_organic.jpg',
-//           name:"Bliss Organic",
-//           points:50,
-//         },
-//         { id:1,
-//           image:'img/vendors/cafe_troppo.jpg',
-//           name:"Cafe Troppo",
-//           points:30,
-//         },
-//         { id:2,
-//           image:'img/vendors/hey_jupiter.jpg',
-//           name:"Hey Jupiter",
-//           points:20,
-//         },
-//         { id:3,
-//           image:'img/vendors/paddys_lantern.jpg',
-//           name:"Paddy's Lantern",
-//           points:10,
-//         },
-//         { id:4,
-//           image:'img/vendors/sad_cafe.jpg',
-//           name:"Sad Cafe",
-//           points:10,
-//         }]
-
-//   return{
-//     all:function(){
-//        return vendorPoints;
-//        },
-//     get:function(vendorPointsId){
-//        return vendorPoints[vendorPointsId];
-//        }
-//     }
-//   })
 
 .factory('MyActivities', function(){
     var myActivities=[
@@ -169,6 +125,27 @@ angular.module('starter.services', [])
       {
         name:'The second cup half price',
         points:50
+      }],
+      menu:[
+      {
+        image:'img/vendors/porkflossbread.jpg',
+        name:'Pork Floss Bread',
+        price:5
+      },
+      {
+        image:'img/vendors/stuffedbun.jpg',
+        name:'Stuffed Bun',
+        price:3
+      },
+      {
+        image:'img/vendors/toast.jpg',
+        name:'Toast',
+        price:6
+      },
+      {
+        image:'img/vendors/redbeanmilktoast.jpg',
+        name:'Red Bean Milk Toast',
+        price:7
       }]
     },
       
@@ -186,6 +163,27 @@ angular.module('starter.services', [])
       {
         name:'The second cup half price',
         points:50
+      }],
+      menu:[
+      {
+        image:'img/vendors/porkflossbread.jpg',
+        name:'Pork Floss Bread',
+        price:5
+      },
+      {
+        image:'img/vendors/stuffedbun.jpg',
+        name:'Stuffed Bun',
+        price:3
+      },
+      {
+        image:'img/vendors/toast.jpg',
+        name:'Toast',
+        price:6
+      },
+      {
+        image:'img/vendors/redbeanmilktoast.jpg',
+        name:'Red Bean Milk Toast',
+        price:7
       }]
     },
 
@@ -203,6 +201,27 @@ angular.module('starter.services', [])
       {
         name:'The second cup half price',
         points:50
+      }],
+      menu:[
+      {
+        image:'img/vendors/porkflossbread.jpg',
+        name:'Pork Floss Bread',
+        price:5
+      },
+      {
+        image:'img/vendors/stuffedbun.jpg',
+        name:'Stuffed Bun',
+        price:3
+      },
+      {
+        image:'img/vendors/toast.jpg',
+        name:'Toast',
+        price:6
+      },
+      {
+        image:'img/vendors/redbeanmilktoast.jpg',
+        name:'Red Bean Milk Toast',
+        price:7
       }]
     },
 
@@ -220,6 +239,27 @@ angular.module('starter.services', [])
       {
         name:'The second cup half price',
         points:50
+      }],
+      menu:[
+      {
+        image:'img/vendors/porkflossbread.jpg',
+        name:'Pork Floss Bread',
+        price:5
+      },
+      {
+        image:'img/vendors/stuffedbun.jpg',
+        name:'Stuffed Bun',
+        price:3
+      },
+      {
+        image:'img/vendors/toast.jpg',
+        name:'Toast',
+        price:6
+      },
+      {
+        image:'img/vendors/redbeanmilktoast.jpg',
+        name:'Red Bean Milk Toast',
+        price:7
       }]
     },
 
@@ -237,6 +277,27 @@ angular.module('starter.services', [])
       {
         name:'The second cup half price',
         points:50
+      }],
+      menu:[
+      {
+        image:'img/vendors/porkflossbread.jpg',
+        name:'Pork Floss Bread',
+        price:5
+      },
+      {
+        image:'img/vendors/stuffedbun.jpg',
+        name:'Stuffed Bun',
+        price:3
+      },
+      {
+        image:'img/vendors/toast.jpg',
+        name:'Toast',
+        price:6
+      },
+      {
+        image:'img/vendors/redbeanmilktoast.jpg',
+        name:'Red Bean Milk Toast',
+        price:7
       }]
     }
   ];
@@ -251,8 +312,3 @@ angular.module('starter.services', [])
     }
   }
 });
-
-
-
-
-

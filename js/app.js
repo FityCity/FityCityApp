@@ -6,6 +6,10 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ionic.contrib.ui.cards'])
+//
+.config(function($compileProvider){
+  $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
+})
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -35,37 +39,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       abstract: true,
       templateUrl: "templates/tabs.html"
     })
-
-    // Each tab has its own nav history stack:
-
-    // .state('tab.dash', {
-    //   url: '/dash',
-    //   views: {
-    //     'tab-dash': {
-    //       templateUrl: 'templates/tab-dash.html',
-    //       controller: 'DashCtrl'
-    //     }
-    //   }
-    // })
-
-    // .state('tab.friends', {
-    //   url: '/friends',
-    //   views: {
-    //     'tab-friends': {
-    //       templateUrl: 'templates/tab-friends.html',
-    //       controller: 'FriendsCtrl'
-    //     }
-    //   }
-    // })
-    // .state('tab.friend-detail', {
-    //   url: '/friend/:friendId',
-    //   views: {
-    //     'tab-friends': {
-    //       templateUrl: 'templates/friend-detail.html',
-    //       controller: 'FriendDetailCtrl'
-    //     }
-    //   }
-    // })
 
     .state('tab.vendors', {
       url: '/vendors',
