@@ -180,7 +180,7 @@ angular.module('starter.services', [])
 
             // Some fake testing data
             var vendors = [
-                {id: 0,
+                {   id: 0,
                     name: 'Bliss Organic',
                     image: 'img/vendors/bliss_organic.jpg',
                     distance: 0.1,
@@ -376,6 +376,44 @@ angular.module('starter.services', [])
                     return vendors[vendorId];
                 }
             }
+        })
+
+        .factory('Tabs', function($rootScope){
+
+            var show_tabs = [
+                "tab.vendors",
+                "tab.events",
+                "tab.account"
+            ]
+
+            var state = {
+                classname:"",
+            }
+
+            var self = {};
+            self.on = function(){
+                state.classname = ""
+            }
+            self.off = function(){
+                state.classname = "tabs-item-hide"
+            }
+            self.getState = function(){
+                return state;
+            }
+
+            $rootScope.$on('$stateChangeStart',
+            function(event, toState, toParams, fromState, fromParams){
+                console.log("toState: ", toState.name);
+                console.log("is in ", toState.name in show_tabs);
+
+                if(show_tabs.indexOf(toState.name) === -1 ){
+                    self.off();
+                }else{
+                    self.on();
+                };
+            });
+
+            return self;
         })
 
         .factory('Events', function() {
