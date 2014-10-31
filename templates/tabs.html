@@ -5,7 +5,7 @@
 -->
 <!--  <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false" does-continue="true"> 
  <ion-slide> -->
-<ion-tabs class="tabs-striped tabs-icon-top tabs-background-positive tabs-light"> 
+<ion-tabs class="tabs-striped tabs-icon-top tabs-background-positive tabs-light {{state.classname}}" > 
 
   <ion-tab title="Vendors" icon="icon ion-heart" href="#/tab/vendors">
    <ion-nav-view name="tab-vendors"></ion-nav-view>
@@ -18,7 +18,6 @@
   <ion-tab title="Account" icon="icon ion-gear-b" href="#/tab/account">
     <ion-nav-view name="tab-account"></ion-nav-view>
   </ion-tab>
-
 
 </ion-tabs>
 <!-- </ion-slide>

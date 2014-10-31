@@ -9,7 +9,12 @@ angular.module('starter.controllers', [])
 .controller('DashCtrl', function($scope) {
 })
 
-.controller('VendorsCtrl', function($scope, Vendors) {
+.controller('TabCtrl', function($scope, Tabs) {
+  $scope.state = Tabs.getState();
+  console.log("TabCtrl loaded");
+})
+
+.controller('VendorsCtrl', function($scope, Vendors, Tabs) {
   $scope.vendors = Vendors.all();
 })
 
@@ -23,7 +28,7 @@ angular.module('starter.controllers', [])
   $scope.vendors = Vendors.all();
 })
 
-.controller('VendorDetailCtrl', function($scope,$ionicModal, $stateParams, Vendors, Activities, ActivityOthers,Camera) {
+.controller('VendorDetailCtrl', function($scope,$ionicModal, $stateParams, Vendors, Activities, ActivityOthers,Camera,Tabs) {
   $scope.vendor = Vendors.get($stateParams.vendorId);
   $scope.activity = Activities.get($stateParams.activityId);
   $scope.otherscards = ActivityOthers.all();
