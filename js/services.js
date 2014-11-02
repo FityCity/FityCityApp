@@ -155,13 +155,28 @@ angular.module('starter.services', [])
         .factory('MyActivities', function() {
             var myActivities = [
                 {id: 0,
-                    image: "img/account/jen1.gif",
+                    title: "Personal Styling Sessions - Hyde Park",
+                    description: "Have you ever wanted to go shopping with your very own personal stylist? Learn how to dress well on any budget with a Personal Styling Session from Clothed.",
+                    image_url: "http://www.adelaidecitycouncil.com/images/made/assets/whats-on/designerexchange15_420_205_88_int_s_c1_c.jpeg",
+                    date: "Every Saturday",
+                    time: "11:00am - 2:00pm",
+                    venue: "Starts at King William Road",
                 },
                 {id: 1,
-                    image: "img/account/jen2.gif",
+                    title: "This is the second",
+                    description: "Have you ever wanted to go shopping with your very own personal stylist? Learn how to dress well on any budget with a Personal Styling Session from Clothed.",
+                    image_url: "http://www.adelaidecitycouncil.com/images/made/assets/whats-on/designerexchange15_420_205_88_int_s_c1_c.jpeg",
+                    date: "Every Saturday",
+                    time: "11:00am - 2:00pm",
+                    venue: "Starts at King William Road",
                 },
                 {id: 2,
-                    image: "img/account/jen3.giff",
+                    title: "This is the third",
+                    description: "Have you ever wanted to go shopping with your very own personal stylist? Learn how to dress well on any budget with a Personal Styling Session from Clothed.",
+                    image_url: "http://www.adelaidecitycouncil.com/images/made/assets/whats-on/designerexchange15_420_205_88_int_s_c1_c.jpeg",
+                    date: "Every Saturday",
+                    time: "11:00am - 2:00pm",
+                    venue: "Starts at King William Road",
                 }]
             return{
                 all: function() {
@@ -173,6 +188,7 @@ angular.module('starter.services', [])
             }
         })
 //end new by yiwei
+//update by Viola at 3/11
 
 
         .factory('Vendors', function() {
@@ -180,7 +196,7 @@ angular.module('starter.services', [])
 
             // Some fake testing data
             var vendors = [
-                {   id: 0,
+                {id: 0,
                     name: 'Bliss Organic',
                     image: 'img/vendors/bliss_organic.jpg',
                     distance: 0.1,
@@ -378,7 +394,7 @@ angular.module('starter.services', [])
             }
         })
 
-        .factory('Tabs', function($rootScope){
+        .factory('Tabs', function($rootScope) {
 
             var show_tabs = [
                 "tab.vendors",
@@ -387,31 +403,32 @@ angular.module('starter.services', [])
             ]
 
             var state = {
-                classname:"",
+                classname: "",
             }
 
             var self = {};
-            self.on = function(){
+            self.on = function() {
                 state.classname = ""
             }
-            self.off = function(){
+            self.off = function() {
                 state.classname = "tabs-item-hide"
             }
-            self.getState = function(){
+            self.getState = function() {
                 return state;
             }
 
             $rootScope.$on('$stateChangeStart',
-            function(event, toState, toParams, fromState, fromParams){
-                console.log("toState: ", toState.name);
-                console.log("is in ", toState.name in show_tabs);
+                    function(event, toState, toParams, fromState, fromParams) {
+                        console.log("toState: ", toState.name);
+                        console.log("is in ", toState.name in show_tabs);
 
-                if(show_tabs.indexOf(toState.name) === -1 ){
-                    self.off();
-                }else{
-                    self.on();
-                };
-            });
+                        if (show_tabs.indexOf(toState.name) === -1) {
+                            self.off();
+                        } else {
+                            self.on();
+                        }
+                        ;
+                    });
 
             return self;
         })

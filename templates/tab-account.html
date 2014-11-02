@@ -1,19 +1,52 @@
 <ion-view title="Fit eCity">
 
-  <ion-content class="has-header">
-      <div class="item item-thumbnail-left">
-          <img src="img/account/jen.png">
-          <h2>Jen Selter </h2>
-          <i class="icon ion-female"> follow me</i>
+    <ion-content class="has-header" ng-controller = "AccountCtrl as account">
+        <div class="item item-thumbnail-left">
+            <img src="img/account/jen.png">
+            <h2>Jen Selter </h2>
+            <i class="icon ion-female"> follow me</i>
 
-      </div> 
-      <h4>Points Distribution</h4>
-      <ion-list>
-        <a ng-repeat="x in vendors" class="item item-thumbnail-left" >
-        <img src="{{x.image}}">
-        <h2>{{x.name}}</h2>
-        <p>{{x.points}} points useable</p>
-      </a>
-    </ion-list>
-  </ion-content>
+        </div> 
+        <section>
+            <div class="button-bar" >
+
+                <a class="button" ng-click = "account.selectBtn(1)">My Videos</a>
+                <a class="button" ng-click = "account.selectBtn(2)">My Points</a>
+                <a class="button" ng-click = "account.selectBtn(3)">My Deals</a>
+            </div>
+            <div class = "account" ng-show = "account.isSelected(1)">
+                               
+                <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="true" does-continue="true">
+                    <ion-slide ng-repeat="card in myactivities">
+                        <div class="list card">
+                            <div class="item item-avatar">
+                                <h2>{{card.title}}</h2>
+                                <p>{{card.date}}, {{card.time}}</p>
+                                <p>{{card.venue}}</p>
+                            </div>
+                            <div class="item item-body">
+                                <img class="full-image" ng-src="{{card.image_url}}">
+                            </div>
+                        </div>
+                    </ion-slide>
+                </ion-slide-box>
+
+            </div>
+            <div class = "account" ng-show = "account.isSelected(2)">
+                <ion-list>
+                    <a ng-repeat="x in vendors" class="item item-thumbnail-left" >
+                        <img src="{{x.image}}">
+                        <h2>{{x.name}}</h2>
+                        <p>{{x.points}} points useable</p>
+                    </a>
+                </ion-list>
+            </div>
+            <div class = "account" ng-show = "account.isSelected(3)">
+                <h2>My Deals</h2>
+                <blockquote>Do it later</blockquote>
+            </div>
+        </section>
+
+    </ion-content>
 </ion-view>
+<!--Update by Viola at 3/11-->
