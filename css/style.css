@@ -1,22 +1,27 @@
 /* Empty. Add your own CSS if you like */
 
 .modality{
-	/*background-color:#eee;*/
-	height:100%;
+    /*background-color:#eee;*/
+    height:100%;
 }
 .slider-pager-page i{
-	visibility: hidden;
+    visibility: hidden;
 }
 .tabs-verytop > .tabs, .tabs.tabs-top{
-	top: 0px;
+    top: 0px;
 }
-
+.button-bar.button{
+    font-size: 15px;
+}
+.button-bar.active{
+    color: red;
+}
 .video-container {
     position: relative;
     padding-bottom: 56.25%;
     padding-top: 30px; height: 0; overflow: hidden;
 }
- 
+
 .video-container iframe,
 .video-container object,
 .video-container embed {
