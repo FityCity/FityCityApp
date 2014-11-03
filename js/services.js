@@ -470,3 +470,91 @@ angular.module('starter.services', [])
                 }
             }
         });
+
+    .factory('HttpService',function($http,FacebookTokenService){
+    //server ip and port
+    var server = 'http://fitecity.herokuapp.com';
+    var accessToken = FacebookTokenService.getToken();
+
+  
+
+    return{
+       
+        // url, method type with capital letters like:"POST"
+        //params is object data to post
+        //success and error are callback functions
+
+ // var requestActivity = $http.get('http://fitecity.herokuapp.com/activities');
+ //            requestActivity.then(function(res) {
+ //                angular.forEach(res.data, function(item, index) {
+ //                    item['imgSrc'] = "http://img.youtube.com/vi/" + item.youtube_id + "/maxresdefault.jpg";
+ //                    activities[item._id] = item;
+ //                    console.log(item);
+ //                })
+ //            });
+
+            // HttpService.request(
+            //     {
+            //         url: '/activities',
+            //         method: 'GET',
+            //     },
+            //     function(data,status){
+            //         if(status===200){
+            //         angular.forEach(data, function(item, index) {
+            //         item['imgSrc'] = "http://img.youtube.com/vi/" + item.youtube_id + "/maxresdefault.jpg";
+            //         activities[item._id] = item;
+            //         console.log(item);
+            //     })
+            //         }
+            //     }
+
+            // );
+
+
+
+        request: function(datas,callback){
+
+           $http({
+                url: server+datas.url,
+                method: datas.method,
+                data: datas.params,
+                headers: {
+                    //'Authorization': 'Bearer ' + accessToken,
+                    'Content-Type' : datas.type||'application/x-www-form-urlencoded'
+                },
+                transformRequest: function(obj) {
+                    var str = [];
+                    for(var p in obj)
+                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                    return str.join("&");
+                }
+           })
+           .success(function(data,status,headers,config){
+            if(typeof callback === 'function'){
+                    callback(data,status,headers,config);
+                }
+            })
+           .error(function(data,status,headers,config){
+            console.log("error status: "+status);
+            if (status===401){
+                tokenRefresh(function() {
+                    request({
+                        url: datas.url,
+                        method: datas.method,
+                        params: datas.params,
+                        type: datas.type
+                    },callback);
+                });
+            }
+            if(typeof callback === 'function'){
+                callback(data,status,headers,config);
+            }
+        });
+       },
+
+       isLoggedIn: function(){
+        return accessToken;
+       }
+   }
+
+});

@@ -71,12 +71,14 @@ angular.module('starter.controllers', [])
                                         alert(mediaFiles[i].fullPath);
                                         $scope.lastVideo = mediaFiles[0].fullPath;
                                         alert("d" + $scope.lastVideo);
+                                        //upload video file
                                     }
                                 }, function(error) {
                             var msg = 'An error occurred during capture: ' + error.code;
                             navigator.notification.alert(msg, null, 'Uh oh!');
                         }, {
-                            limit: 1
+                            limit: 1,
+                            duration: 1000
                         });
                     };
 
