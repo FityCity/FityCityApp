@@ -191,197 +191,221 @@ angular.module('starter.services', [])
 //update by Viola at 3/11
 
 
-        .factory('Vendors', function() {
+        .factory('Vendors', function(HttpService) {
             // Might use a resource here that returns a JSON array
 
             // Some fake testing data
-            var vendors = [
-                {id: 0,
-                    name: 'Bliss Organic',
-                    image: 'img/vendors/bliss_organic.jpg',
-                    distance: 0.1,
-                    address: "7 Compton St",
-                    points: 50,
-                    offers: [
-                        {
-                            name: '10% discount of coffee',
-                            points: 20
-                        },
-                        {
-                            name: 'The second cup half price',
-                            points: 50
-                        }],
-                    menu: [
-                        {
-                            image: 'img/vendors/porkflossbread.jpg',
-                            name: 'Pork Floss Bread',
-                            price: 5
-                        },
-                        {
-                            image: 'img/vendors/stuffedbun.jpg',
-                            name: 'Stuffed Bun',
-                            price: 3
-                        },
-                        {
-                            image: 'img/vendors/toast.jpg',
-                            name: 'Toast',
-                            price: 6
-                        },
-                        {
-                            image: 'img/vendors/redbeanmilktoast.jpg',
-                            name: 'Red Bean Milk Toast',
-                            price: 7
-                        }]
-                },
-                {id: 1,
-                    name: 'Cafe Troppo',
-                    image: 'img/vendors/cafe_troppo.jpg',
-                    distance: .4,
-                    address: "42 Whitmore Square",
-                    points: 40,
-                    offers: [
-                        {
-                            name: '10% discount of coffee',
-                            points: 20
-                        },
-                        {
-                            name: 'The second cup half price',
-                            points: 50
-                        }],
-                    menu: [
-                        {
-                            image: 'img/vendors/porkflossbread.jpg',
-                            name: 'Pork Floss Bread',
-                            price: 5
-                        },
-                        {
-                            image: 'img/vendors/stuffedbun.jpg',
-                            name: 'Stuffed Bun',
-                            price: 3
-                        },
-                        {
-                            image: 'img/vendors/toast.jpg',
-                            name: 'Toast',
-                            price: 6
-                        },
-                        {
-                            image: 'img/vendors/redbeanmilktoast.jpg',
-                            name: 'Red Bean Milk Toast',
-                            price: 7
-                        }]
-                },
-                {id: 2,
-                    name: 'Hey Jupiter',
-                    image: 'img/vendors/hey_jupiter.jpg',
-                    distance: .7,
-                    address: "11 Ebenezer Pl",
-                    points: 30,
-                    offers: [
-                        {
-                            name: '10% discount of coffee',
-                            points: 20
-                        },
-                        {
-                            name: 'The second cup half price',
-                            points: 50
-                        }],
-                    menu: [
-                        {
-                            image: 'img/vendors/porkflossbread.jpg',
-                            name: 'Pork Floss Bread',
-                            price: 5
-                        },
-                        {
-                            image: 'img/vendors/stuffedbun.jpg',
-                            name: 'Stuffed Bun',
-                            price: 3
-                        },
-                        {
-                            image: 'img/vendors/toast.jpg',
-                            name: 'Toast',
-                            price: 6
-                        },
-                        {
-                            image: 'img/vendors/redbeanmilktoast.jpg',
-                            name: 'Red Bean Milk Toast',
-                            price: 7
-                        }]
-                },
-                {id: 3,
-                    name: "Paddy's Lantern",
-                    image: 'img/vendors/paddys_lantern.jpg',
-                    distance: 1.1,
-                    address: "219 Gilbert St",
-                    points: 20,
-                    offers: [
-                        {
-                            name: '10% discount of coffee',
-                            points: 20
-                        },
-                        {
-                            name: 'The second cup half price',
-                            points: 50
-                        }],
-                    menu: [
-                        {
-                            image: 'img/vendors/porkflossbread.jpg',
-                            name: 'Pork Floss Bread',
-                            price: 5
-                        },
-                        {
-                            image: 'img/vendors/stuffedbun.jpg',
-                            name: 'Stuffed Bun',
-                            price: 3
-                        },
-                        {
-                            image: 'img/vendors/toast.jpg',
-                            name: 'Toast',
-                            price: 6
-                        },
-                        {
-                            image: 'img/vendors/redbeanmilktoast.jpg',
-                            name: 'Red Bean Milk Toast',
-                            price: 7
-                        }]
-                },
-                {id: 4,
-                    name: "Sad Cafe",
-                    image: 'img/vendors/sad_cafe.jpg',
-                    distance: 1.5,
-                    address: "Shop 3,10 Ebenezer Pl",
-                    points: 10,
-                    offers: [
-                        {
-                            name: '10% discount of coffee',
-                            points: 20
-                        },
-                        {
-                            name: 'The second cup half price',
-                            points: 50
-                        }],
-                    menu: [
-                        {
-                            image: 'img/vendors/porkflossbread.jpg',
-                            name: 'Pork Floss Bread',
-                            price: 5
-                        },
-                        {
-                            image: 'img/vendors/stuffedbun.jpg',
-                            name: 'Stuffed Bun',
-                            price: 3
-                        },
-                        {
-                            image: 'img/vendors/toast.jpg',
-                            name: 'Toast',
-                            price: 6
-                        },
-                        {
-                            image: 'img/vendors/redbeanmilktoast.jpg',
-                            name: 'Red Bean Milk Toast',
-                            price: 7
-                        }]
-                }
-            ];
+            // var vendors = [
+            //     {id: 0,
+            //         name: 'Bliss Organic',
+            //         image: 'img/vendors/bliss_organic.jpg',
+            //         distance: 0.1,
+            //         address: "7 Compton St",
+            //         points: 50,
+            //         offers: [
+            //             {
+            //                 name: '10% discount of coffee',
+            //                 points: 20
+            //             },
+            //             {
+            //                 name: 'The second cup half price',
+            //                 points: 50
+            //             }],
+            //         menu: [
+            //             {
+            //                 image: 'img/vendors/porkflossbread.jpg',
+            //                 name: 'Pork Floss Bread',
+            //                 price: 5
+            //             },
+            //             {
+            //                 image: 'img/vendors/stuffedbun.jpg',
+            //                 name: 'Stuffed Bun',
+            //                 price: 3
+            //             },
+            //             {
+            //                 image: 'img/vendors/toast.jpg',
+            //                 name: 'Toast',
+            //                 price: 6
+            //             },
+            //             {
+            //                 image: 'img/vendors/redbeanmilktoast.jpg',
+            //                 name: 'Red Bean Milk Toast',
+            //                 price: 7
+            //             }]
+            //     },
+            //     {id: 1,
+            //         name: 'Cafe Troppo',
+            //         image: 'img/vendors/cafe_troppo.jpg',
+            //         distance: .4,
+            //         address: "42 Whitmore Square",
+            //         points: 40,
+            //         offers: [
+            //             {
+            //                 name: '10% discount of coffee',
+            //                 points: 20
+            //             },
+            //             {
+            //                 name: 'The second cup half price',
+            //                 points: 50
+            //             }],
+            //         menu: [
+            //             {
+            //                 image: 'img/vendors/porkflossbread.jpg',
+            //                 name: 'Pork Floss Bread',
+            //                 price: 5
+            //             },
+            //             {
+            //                 image: 'img/vendors/stuffedbun.jpg',
+            //                 name: 'Stuffed Bun',
+            //                 price: 3
+            //             },
+            //             {
+            //                 image: 'img/vendors/toast.jpg',
+            //                 name: 'Toast',
+            //                 price: 6
+            //             },
+            //             {
+            //                 image: 'img/vendors/redbeanmilktoast.jpg',
+            //                 name: 'Red Bean Milk Toast',
+            //                 price: 7
+            //             }]
+            //     },
+            //     {id: 2,
+            //         name: 'Hey Jupiter',
+            //         image: 'img/vendors/hey_jupiter.jpg',
+            //         distance: .7,
+            //         address: "11 Ebenezer Pl",
+            //         points: 30,
+            //         offers: [
+            //             {
+            //                 name: '10% discount of coffee',
+            //                 points: 20
+            //             },
+            //             {
+            //                 name: 'The second cup half price',
+            //                 points: 50
+            //             }],
+            //         menu: [
+            //             {
+            //                 image: 'img/vendors/porkflossbread.jpg',
+            //                 name: 'Pork Floss Bread',
+            //                 price: 5
+            //             },
+            //             {
+            //                 image: 'img/vendors/stuffedbun.jpg',
+            //                 name: 'Stuffed Bun',
+            //                 price: 3
+            //             },
+            //             {
+            //                 image: 'img/vendors/toast.jpg',
+            //                 name: 'Toast',
+            //                 price: 6
+            //             },
+            //             {
+            //                 image: 'img/vendors/redbeanmilktoast.jpg',
+            //                 name: 'Red Bean Milk Toast',
+            //                 price: 7
+            //             }]
+            //     },
+            //     {id: 3,
+            //         name: "Paddy's Lantern",
+            //         image: 'img/vendors/paddys_lantern.jpg',
+            //         distance: 1.1,
+            //         address: "219 Gilbert St",
+            //         points: 20,
+            //         offers: [
+            //             {
+            //                 name: '10% discount of coffee',
+            //                 points: 20
+            //             },
+            //             {
+            //                 name: 'The second cup half price',
+            //                 points: 50
+            //             }],
+            //         menu: [
+            //             {
+            //                 image: 'img/vendors/porkflossbread.jpg',
+            //                 name: 'Pork Floss Bread',
+            //                 price: 5
+            //             },
+            //             {
+            //                 image: 'img/vendors/stuffedbun.jpg',
+            //                 name: 'Stuffed Bun',
+            //                 price: 3
+            //             },
+            //             {
+            //                 image: 'img/vendors/toast.jpg',
+            //                 name: 'Toast',
+            //                 price: 6
+            //             },
+            //             {
+            //                 image: 'img/vendors/redbeanmilktoast.jpg',
+            //                 name: 'Red Bean Milk Toast',
+            //                 price: 7
+            //             }]
+            //     },
+            //     {id: 4,
+            //         name: "Sad Cafe",
+            //         image: 'img/vendors/sad_cafe.jpg',
+            //         distance: 1.5,
+            //         address: "Shop 3,10 Ebenezer Pl",
+            //         points: 10,
+            //         offers: [
+            //             {
+            //                 name: '10% discount of coffee',
+            //                 points: 20
+            //             },
+            //             {
+            //                 name: 'The second cup half price',
+            //                 points: 50
+            //             }],
+            //         menu: [
+            //             {
+            //                 image: 'img/vendors/porkflossbread.jpg',
+            //                 name: 'Pork Floss Bread',
+            //                 price: 5
+            //             },
+            //             {
+            //                 image: 'img/vendors/stuffedbun.jpg',
+            //                 name: 'Stuffed Bun',
+            //                 price: 3
+            //             },
+            //             {
+            //                 image: 'img/vendors/toast.jpg',
+            //                 name: 'Toast',
+            //                 price: 6
+            //             },
+            //             {
+            //                 image: 'img/vendors/redbeanmilktoast.jpg',
+            //                 name: 'Red Bean Milk Toast',
+            //                 price: 7
+            //             }]
+            //     }
+            // ];
+
+            
+            // var requestActivity = $http.get('http://fitecity.herokuapp.com/activities');
+            // requestActivity.then(function(res) {
+            //     angular.forEach(res.data, function(item, index) {
+            //         item['imgSrc'] = "http://img.youtube.com/vi/" + item.youtube_id + "/maxresdefault.jpg";
+            //         activities[item._id] = item;
+            //         console.log(item);
+            //     })
+            // });
+            var vendors= {};
+            HttpService.request(
+            {
+                url:'/vendors',
+                method: 'GET',
+            },
+            function(data){
+                $scope.vendor = data;
+                angular.forEach(data,function(item,index){
+                    vendors[item._id] = item;
+                    console.log(item);
+                });
+            }
+            );
 
             return {
                 all: function() {

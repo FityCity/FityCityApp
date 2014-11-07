@@ -38,7 +38,7 @@ angular.module('starter.controllers', [])
         })
 //Update by Viola at 3/11 
 
-        .controller('VendorDetailCtrl', function($scope, $ionicModal, $stateParams, Vendors, Activities, ActivityOthers, Camera, Tabs) {
+        .controller('VendorDetailCtrl', function($scope, $ionicModal, $stateParams, Vendors, Activities, ActivityOthers, Camera, Tabs,HttpService) {
             $scope.vendor = Vendors.get($stateParams.vendorId);
             $scope.activity = Activities.get($stateParams.activityId);
             $scope.otherscards = ActivityOthers.all();
