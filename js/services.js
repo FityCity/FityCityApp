@@ -399,7 +399,6 @@ angular.module('starter.services', [])
                 method: 'GET',
             },
             function(data){
-                $scope.vendor = data;
                 angular.forEach(data,function(item,index){
                     vendors[item._id] = item;
                     console.log(item);
