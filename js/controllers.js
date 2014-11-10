@@ -50,7 +50,6 @@ angular.module('starter.controllers', [])
                 $scope.modal = modal;
             });
 
-
             // Triggered in the login modal to close it
             $scope.close = function() {
                 $scope.modal.hide();
@@ -60,26 +59,27 @@ angular.module('starter.controllers', [])
             $scope.popup = function() {
                 $scope.modal.show();
             };
-//Open the camera to take a video
-            $scope.getVideo = function() {
-
+            //Open the camera to take a video
+             $scope.getVideo = function(uri) {
+               
                 Camera.getVideo().then(
-                        //get the video Files in URI
-                                function(mediaFiles) {
-                                    var i, len;
-                                    for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-                                        alert(mediaFiles[i].fullPath);
-                                        $scope.lastVideo = mediaFiles[0].fullPath;
-                                        alert("d" + $scope.lastVideo);
-                                        //upload video file
-                                    }
-                                }, function(error) {
-                            var msg = 'An error occurred during capture: ' + error.code;
-                            navigator.notification.alert(msg, null, 'Uh oh!');
-                        }, {
-                            limit: 1,
-                            duration: 1000
-                        });
-                    };
+                  //get the video Files in URI
+                  function(mediaFiles) {
+                    var i, len;
+                    for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+                       alert(mediaFiles[i].fullPath);
+                       $scope.lastVideo = mediaFiles[i].fullPath;
+                       alert("d"+$scope.lastVideo);
+                       Videos.upload($scope.lastVideo);
+                    }
+                  },function(error) {
+                    var msg = 'An error occurred during capture: ' + error.code;
+                    navigator.notification.alert(msg, null, 'Uh oh!');
+                  },{
+                  limit:1,
+                  duration: 1000
+                });
+                
+            };
 
         });
