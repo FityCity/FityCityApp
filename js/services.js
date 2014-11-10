@@ -378,6 +378,7 @@ angular.module('starter.services', [])
             }
         })
 
+
         .factory('Tabs', function($rootScope){
 
             var show_tabs = [
@@ -403,9 +404,6 @@ angular.module('starter.services', [])
 
             $rootScope.$on('$stateChangeStart',
             function(event, toState, toParams, fromState, fromParams){
-                console.log("toState: ", toState.name);
-                console.log("is in ", toState.name in show_tabs);
-
                 if(show_tabs.indexOf(toState.name) === -1 ){
                     self.off();
                 }else{
@@ -414,6 +412,35 @@ angular.module('starter.services', [])
             });
 
             return self;
+        })
+
+        .factory('Videos', function(){
+            var getFileUploadOptions = function(fileURI) {
+              var options = new FileUploadOptions();
+              options.mimeType = "video/mp4";
+              return options;
+            }
+
+            var onSuccess = function(data){
+                console.log("Success", data)
+            }
+
+            var onError = function(data){
+                console.log("Error", data)
+            }
+
+            return {
+              upload: function (file, onSuccess, onError) {
+                var ft =  new FileTransfer();
+                ft.upload(
+                    file.toURL(), 
+                    // encodeURI("http://localhost:5000/videos"), 
+                    encodeURI("http://fitecity.herokuapp.com/videos"), 
+                    onSuccess, 
+                    onError, 
+                    getFileUploadOptions(file.fullPath));
+              }
+            };
         })
 
         .factory('Events', function() {

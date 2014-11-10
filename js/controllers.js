@@ -28,11 +28,13 @@ angular.module('starter.controllers', [])
   $scope.vendors = Vendors.all();
 })
 
-.controller('VendorDetailCtrl', function($scope,$ionicModal, $stateParams, Vendors, Activities, ActivityOthers,Camera,Tabs) {
+.controller('VendorDetailCtrl', function($scope,$ionicModal, $stateParams, Videos, Vendors, Activities, ActivityOthers,Camera,Tabs) {
   $scope.vendor = Vendors.get($stateParams.vendorId);
   $scope.activity = Activities.get($stateParams.activityId);
   $scope.otherscards = ActivityOthers.all();
   $scope.cards = Activities.all();
+
+  console.log("Hello");
 
   $ionicModal.fromTemplateUrl('templates/popup.html', {
     scope: $scope
@@ -51,23 +53,25 @@ angular.module('starter.controllers', [])
     $scope.modal.show();
   };
 //Open the camera to take a video
- $scope.getVideo = function() {
-
+ $scope.getVideo = function(uri) {
+   
     Camera.getVideo().then(
-    //get the video Files in URI
-    function(mediaFiles) {
+      //get the video Files in URI
+      function(mediaFiles) {
         var i, len;
         for (i = 0, len = mediaFiles.length; i < len; i += 1) {
            alert(mediaFiles[i].fullPath);
-           $scope.lastVideo = mediaFiles[0].fullPath;
+           $scope.lastVideo = mediaFiles[i].fullPath;
            alert("d"+$scope.lastVideo);
+           Videos.upload($scope.lastVideo);
         }
-    },function(error) {
+      },function(error) {
         var msg = 'An error occurred during capture: ' + error.code;
         navigator.notification.alert(msg, null, 'Uh oh!');
-    },{
+      },{
       limit:1
     });
+    
 };
 
 });
