@@ -62,19 +62,21 @@ angular.module('starter.controllers', [])
 
             //uploading video
             var upload = function (videoURI) {
-                var options = new FileUploadOptions();
-                options.fileKey = "file";
-                //create a unique file name based on the timestamp, use this in the server for time information, or time metadata in the video clip itself.
-                options.fileName = "" + (new Date()).valueOf() + ".mov";
-                options.mimeType = "video/mov";
-                options.httpMethod = "POST";
-                var ft = new FileTransfer();
-                //this is needed to grab the file correctly on IOS
-                videoURI = 'file://' + videoURI;  
-                ft.upload(videoURI, "http://fitecity.herokuapp.com/videos?"+
-                    "vendorId="+$scope.vendor._id+
-                    "&activityId="+$scope.activity._id, 
-                    postSuccess, postFailure, options, true); //boolean is for trustAllHosts
+                if(window.hasOwnProperty("FileUploadOptions")){
+                    var options = new FileUploadOptions();
+                    options.fileKey = "file";
+                    //create a unique file name based on the timestamp, use this in the server for time information, or time metadata in the video clip itself.
+                    options.fileName = "" + (new Date()).valueOf() + ".mov";
+                    options.mimeType = "video/mov";
+                    options.httpMethod = "POST";
+                    var ft = new FileTransfer();
+                    //this is needed to grab the file correctly on IOS
+                    videoURI = 'file://' + videoURI;  
+                    ft.upload(videoURI, "http://fitecity.herokuapp.com/videos?"+
+                        "vendorId="+$scope.vendor._id+
+                        "&activityId="+$scope.activity._id, 
+                        postSuccess, postFailure, options, true); //boolean is for trustAllHosts
+                }
             };
 
             //upload succeed, get the video           
