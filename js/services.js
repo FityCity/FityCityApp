@@ -521,7 +521,7 @@ angular.module('starter.services', [])
                     return events[eventId];
                 }
             }
-        });
+        })
 
     .factory('HttpService',function($http,FacebookTokenService){
     //server ip and port
