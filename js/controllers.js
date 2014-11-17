@@ -40,6 +40,7 @@ angular.module('starter.controllers', [])
 
         .controller('VendorDetailCtrl', function($ionicPopup,$scope, $ionicModal, $stateParams, Vendors, Activities, ActivityOthers, Camera, Tabs,HttpService) {
             $scope.vendor = Vendors.get($stateParams.vendorId);
+            console.log("Vendor", $scope.vendor, $stateParams);
             $scope.activity = Activities.get($stateParams.activityId);
             $scope.otherscards = ActivityOthers.all();
             $scope.cards = Activities.all();
