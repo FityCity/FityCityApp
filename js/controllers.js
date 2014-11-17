@@ -60,6 +60,7 @@ angular.module('starter.controllers', [])
                 $scope.modal.show();
             };
 
+
             //uploading video
             var upload = function (videoURI) {
                 if(window.hasOwnProperty("FileUploadOptions")){
@@ -118,5 +119,6 @@ angular.module('starter.controllers', [])
                             duration: 1000
                         });
                     };
+
 
         });
