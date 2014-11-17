@@ -64,7 +64,7 @@ angular.module('starter.services', [])
                 return {
                     getVideo: function(options) {
                         var q = $q.defer();
-                        //navigator.capture.captureVideo(captureSuccess, captureError, options);
+                        
                         navigator.device.capture.captureVideo(function(result) {
                             q.resolve(result);
                         }, function(err) {
