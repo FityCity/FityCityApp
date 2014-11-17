@@ -59,30 +59,6 @@ angular.module('starter.controllers', [])
             $scope.popup = function() {
                 $scope.modal.show();
             };
-<<<<<<< Updated upstream
-            //Open the camera to take a video
-             $scope.getVideo = function(uri) {
-               
-                Camera.getVideo().then(
-                  //get the video Files in URI
-                  function(mediaFiles) {
-                    var i, len;
-                    for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-                       alert(mediaFiles[i].fullPath);
-                       $scope.lastVideo = mediaFiles[i].fullPath;
-                       alert("d"+$scope.lastVideo);
-                       Videos.upload($scope.lastVideo);
-                    }
-                  },function(error) {
-                    var msg = 'An error occurred during capture: ' + error.code;
-                    navigator.notification.alert(msg, null, 'Uh oh!');
-                  },{
-                  limit:1,
-                  duration: 1000
-                });
-                
-            };
-=======
 
             //uploading video
             var upload = function (videoURI) {
@@ -140,6 +116,5 @@ angular.module('starter.controllers', [])
                             duration: 1000
                         });
                     };
->>>>>>> Stashed changes
 
         });
