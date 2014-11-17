@@ -38,12 +38,17 @@ angular.module('starter.controllers', [])
         })
 //Update by Viola at 3/11 
 
-        .controller('VendorDetailCtrl', function($ionicPopup,$scope, $ionicModal, $stateParams, Vendors, Activities, ActivityOthers, Camera, Tabs,HttpService) {
+        .controller('VendorDetailCtrl', function($ionicPopup,$scope, $ionicSlideBoxDelegate, $ionicModal, $stateParams, Vendors, Activities, ActivityOthers, Camera, Tabs,HttpService) {
             $scope.vendor = Vendors.get($stateParams.vendorId);
             $scope.activity = Activities.get($stateParams.activityId);
             $scope.otherscards = ActivityOthers.all();
-            $scope.cards = Activities.all();
 
+
+            Activities.all(function(activities) {
+                $scope.cards = activities;
+                $ionicSlideBoxDelegate.update();
+            });
+            
             $ionicModal.fromTemplateUrl('templates/popup.html', {
                 scope: $scope
             }).then(function(modal) {

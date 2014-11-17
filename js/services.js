@@ -103,17 +103,20 @@ angular.module('starter.services', [])
             var activities = {};
 
             var requestActivity = $http.get('http://fitecity.herokuapp.com/activities');
-            requestActivity.then(function(res) {
-                angular.forEach(res.data, function(item, index) {
-                    item['imgSrc'] = "http://img.youtube.com/vi/" + item.youtube_id + "/maxresdefault.jpg";
-                    activities[item._id] = item;
-                    console.log(item);
-                })
-            });
+
 
             return {
-                all: function() {
-                    return activities;
+                all: function(callback) {
+                    requestActivity.then(function(res) {
+                        angular.forEach(res.data, function(item, index) {
+                            item['imgSrc'] = "http://img.youtube.com/vi/" + item.youtube_id + "/maxresdefault.jpg";
+                            activities[item._id] = item;
+                            console.log(item);
+                        })
+                        if (callback && typeof callback == 'function') {
+                            callback(activities);
+                        }
+                    });
                 },
                 get: function(activityId) {
                     return activities[activityId];
@@ -489,7 +492,7 @@ angular.module('starter.services', [])
             };
         })
 
-        .factory('Events', function() {
+        .factory('Events', function(HttpService) {
             // Might use a resource here that returns a JSON array
 
             // Some fake testing data
