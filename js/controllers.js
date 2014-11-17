@@ -59,7 +59,7 @@ angular.module('starter.controllers', [])
             $scope.popup = function() {
                 $scope.modal.show();
             };
-<<<<<<< Updated upstream
+
             //Open the camera to take a video
              $scope.getVideo = function(uri) {
                
@@ -82,7 +82,6 @@ angular.module('starter.controllers', [])
                 });
                 
             };
-=======
 
             //uploading video
             var upload = function (videoURI) {
@@ -140,6 +139,6 @@ angular.module('starter.controllers', [])
                             duration: 1000
                         });
                     };
->>>>>>> Stashed changes
+
 
         });
