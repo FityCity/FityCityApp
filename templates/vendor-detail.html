@@ -1,22 +1,26 @@
 <ion-view title="Details">
   <ion-content has-header="true" padding="false">
   	<ion-list>
- 	    <div class="item item-avatar" ng-click="popup()">
-  		    <img ng-src="{{vendor.image_url}}">
-  	        <h2>{{vendor.name}}</h2>
-	        <p>{{vendor.address}}</p>
-		</div> 
-		<div class="item item-divider">Offers</div>
+ 	    <div class="item item-avatar">
+			<div style="display: inline-block;width: 20%;">
+				<img id="vendor-detail-img" ng-src="{{vendor.image_url}}">
+			</div>
+			<div id="vendor-detail">
+				<h2 id="vendor-detail-name">{{vendor.name}}</h2>
+				<p id="vendor-detail-des" style="white-space: normal;">{{vendor.address}}</p>
+			</div>
+		</div>
+		<div class="item item-divider" ng-click="popup()">Offers</div>
 		<ion-list ng-repeat="x in vendor.offers">
           <div class="item">
             <p class="ion-coffee"> {{x.name}}<span class="ion-pricetag" style="float:right"> {{x.points}}points</span></p> 
           </div>
   	    </ion-list>
   	</ion-list>
-
+<div  class="vendor-detail">
   	<ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="true" does-continue="true">
 	  <ion-slide ng-repeat="card in cards">
-        <div class="list card">
+        <div id="activities-card" class="list card">
           <div class="item item-divider">
 		    {{card.instructions}}
 		  </div>
@@ -42,5 +46,6 @@
 		</div>
 	  </ion-slide>
 	</ion-slide-box>
+	</div>>
   </ion-content>
 </ion-view>
