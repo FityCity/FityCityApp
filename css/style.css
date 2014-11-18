@@ -1,5 +1,53 @@
 /* Empty. Add your own CSS if you like */
 
+
+.bar.bar-positive{
+    background-color: #84d3c9;
+}
+.bar.bar-positive .title{
+    font-family: Padaloma;
+    font-weight: normal;
+    font-size: 20px;
+    margin-top: 5px;
+}
+.tabs-striped.tabs-background-positive .tabs{
+    background-color: #84d3c9;
+}
+ion-content{
+    background-color: #4a5055;
+
+}
+.list{
+    background-color: rgba(255,255,255,0.9);
+}
+a.item{
+    background-color: rgba(255,255,255,0.9);
+    font-family: Verdana;
+}
+.item-avatar{
+    padding-left:10px;
+}
+#vendor-detail-img{
+    position:relative;
+    max-height: 70px;
+    max-width: 70px;
+}
+#vendor-detail{
+    display: inline-block;
+    margin-left:10px;
+    width: 70%;
+    line-height: 15px;
+    padding-top:10px;
+}
+#vendor-detail-name{
+    font-size: 18px;
+}
+#vendor-detail-des{
+
+}
+.tabs-striped.tabs-light .tab-item.tab-item-active, .tabs-striped.tabs-light .tab-item.active, .tabs-striped.tabs-light .tab-item.activated{
+    background-color: #76bcb2;
+}
 .modality{
     /*background-color:#eee;*/
     height:100%;
@@ -30,4 +78,65 @@
     left: 0;
     width: 100%;
     height: 100%;
+}
+.account-content{
+    position:relative;
+    background-color: #ffffff;
+    margin-top: 100px;
+    box-shadow: 0px -1px 20px rgba(0,0,0,0.4);
+    padding-top: 50px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    height: 130px;
+    font-family: Verdana;
+}
+.account-info{
+    position:relative;
+    top:-100px;
+    width:200px;
+    z-index:2;
+    text-align: center;
+    margin: 0px auto;
+}
+.account-img{
+    /*position:relative;*/
+    display:block;
+    margin:0px auto;
+    width:100px;
+    height:100px;
+    border:1px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.7);
+}
+.button-bar{
+    background-color: lightgray;
+}
+.button-bar >a.account-button{
+    margin:0px 1px 1px 0px;
+    box-shadow: 2px 1px rgba(200,200,200,0.7);
+    font-size: 120%;
+    font-family: Verdana;
+}
+.button-bar > .button:first-child{
+    /*border-radius: 0px 5px 5px 0px;*/
+}
+.button-bar > .button:last-child{
+    /*border-radius: 5px 0px 0px 5px;*/
+}
+#video-card #activities-card{
+    margin-top:15px ;
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 2px 1px rgba(200,200,200,0.7);
+}
+.vendor-detail{
+    height: 350px;
+    background-color: #f8f8f8;
+}
+.account-page{
+    height: 350px;
+    background-color: #f8f8f8;
+}
+
+.item{
+    font-family: Verdana;
 }
