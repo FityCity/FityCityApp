@@ -9,7 +9,7 @@
   <ion-content>
     <ion-list ng-repeat="x in vendor.menu">
       <div class="item item-thumbnail item item-thumbnail-left">
-          <img src="{{x.image}}">
+          <img ng-src="{{x.image}}">
             <h2>{{x.name}}</h2>
             <p>$ {{x.price}}</p>
       </div> 
