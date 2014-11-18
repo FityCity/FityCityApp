@@ -18,12 +18,11 @@ angular.module('starter.controllers', [])
             $scope.vendors = Vendors.all();
         })
 
-        .controller('EventsCtrl', function($scope, Events) {
+        .controller('EventsCtrl', function($scope, Events, $ionicSlideBoxDelegate) {
             $scope.events = Events.all();
-
         })
 
-//Control the button bar in account page
+        //Control the button bar in account page
         .controller('AccountCtrl', function($scope, Vendors, MyActivities) {
             // $scope.vendorPoints = VendorPoints.all();
             this.btn = 1;
@@ -36,8 +35,8 @@ angular.module('starter.controllers', [])
             $scope.vendors = Vendors.all();
             $scope.myactivities = MyActivities.all();
         })
-//Update by Viola at 3/11 
 
+        //Update by Viola at 3/11 
         .controller('VendorDetailCtrl', function($ionicPopup,$scope, $ionicSlideBoxDelegate, $ionicModal, $stateParams, Vendors, Activities, ActivityOthers, Camera, Tabs,HttpService) {
             // alert("Ok 1")
             $scope.vendor = Vendors.get($stateParams.vendorId);

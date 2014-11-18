@@ -1,6 +1,10 @@
 <ion-view title="Events">
     <ion-content has-header="true" padding="false">
-        <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="true" does-continue="true">
+
+        <ion-slide-box on-slide-changed="slideHasChanged($index)" 
+                       show-pager="true" 
+                       does-continue="true">
+
             <ion-slide ng-repeat="card in events">
                 <div class="list card">
 
