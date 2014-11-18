@@ -492,7 +492,7 @@ angular.module('starter.services', [])
             };
         })
 
-        .factory('Events', function(HttpService) {
+        .factory('Events', function(HttpService,$ionicSlideBoxDelegate) {
             // Might use a resource here that returns a JSON array
 
             // Some fake testing data
@@ -519,18 +519,21 @@ angular.module('starter.services', [])
             //     }
             // ];
 
-            var events= {};
+            var events= [];
             HttpService.request(
             {
-                url:'/events',
+                url:'/adventures',
                 method: 'GET',
             },
             function(data,status){
                 if(status == 200){
                     angular.forEach(data,function(item,index){
-                        events[item._id] = item;
-                        console.log(item);
+                        events.push(item);
                     });
+
+                    // This really shouldn't be in the service
+                    $ionicSlideBoxDelegate.update();
+                    
                 }else{
                     console.log("get events error: "+status);
                 }
