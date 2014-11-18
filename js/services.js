@@ -489,7 +489,7 @@ angular.module('starter.services', [])
             };
         })
 
-        .factory('Events', function() {
+        .factory('Events', function(HttpService) {
             // Might use a resource here that returns a JSON array
 
             // Some fake testing data
