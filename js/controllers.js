@@ -39,6 +39,7 @@ angular.module('starter.controllers', [])
 //Update by Viola at 3/11 
 
         .controller('VendorDetailCtrl', function($ionicPopup,$scope, $ionicSlideBoxDelegate, $ionicModal, $stateParams, Vendors, Activities, ActivityOthers, Camera, Tabs,HttpService) {
+            // alert("Ok 1")
             $scope.vendor = Vendors.get($stateParams.vendorId);
             console.log("Vendor", $scope.vendor, $stateParams);
             $scope.activity = Activities.get($stateParams.activityId);
@@ -66,7 +67,7 @@ angular.module('starter.controllers', [])
                 $scope.modal.show();
             };
 
-
+            
             //uploading video
             var upload = function (videoURI) {
                 if(window.hasOwnProperty("FileUploadOptions")){
@@ -92,39 +93,40 @@ angular.module('starter.controllers', [])
                     title: "upload succeeded!"
                 });
                 console.log("upload succeeded");
-              };
+            };
 
             var postFailure = function (error) {
                  $ionicPopup.alert({
                     title: "upload failed!"
                  });
                  console.log("upload failed");
-              };
+            };
               //call the upload function above with the video path on the scope
-              upload($scope.video);
+              // upload($scope.video);
             
             //Open the camera to take a video
             $scope.getVideo = function() {
 
                 Camera.getVideo().then(
-                        //get the video Files in URI
-                                function(mediaFiles) {
-                                    var i, len;
-                                    for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-                                        alert(mediaFiles[i].fullPath);
-                                        $scope.lastVideo = mediaFiles[0].fullPath;
-                                        alert("d" + $scope.lastVideo);
-                                        //upload video file with vendor id and activity id
-                                        upload($scope.lastVideo);
-                                    }
-                                }, function(error) {
-                            var msg = 'An error occurred during capture: ' + error.code;
-                            navigator.notification.alert(msg, null, 'Uh oh!');
-                        }, {
-                            limit: 1,
-                            duration: 1000
-                        });
-                    };
+                    //get the video Files in URI
+                    function(mediaFiles) {
+                        var i, len;
+                        for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+                            alert(mediaFiles[i].fullPath);
+                            $scope.lastVideo = mediaFiles[0].fullPath;
+                            alert("d" + $scope.lastVideo);
+                            //upload video file with vendor id and activity id
+                            upload($scope.lastVideo);
+                        }
+                    }, function(error) {
+                    var msg = 'An error occurred during capture: ' + error.code;
+                    navigator.notification.alert(msg, null, 'Uh oh!');
+                    }, {
+                        limit: 1,
+                        duration: 1000
+                });
+            };
 
+            // alert("Ok 3");
 
         });
