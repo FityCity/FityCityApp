@@ -103,6 +103,57 @@ angular.module('starter.controllers', [])
               //call the upload function above with the video path on the scope
               // upload($scope.video);
             
+            //post video to the s3
+            var urlS3;
+            var postVideoInfo = function(){
+                HttpService.request(
+                    {
+                        url:"",
+                        method: 'POST',
+                        params: {
+                            vendorId: $scope.vendor._id,
+                            activity: $scope.activity._id,
+                            //user info here
+                            //video time stamp here
+                        }
+                    },
+                    function(data,status){
+                        if(status==200){
+                            console.log("video info post successful");   
+                        }else{
+                            console.log("video info post fails");
+                        }
+                    }
+                );
+            }
+            var postVideo = function(){
+                  $http({
+                    url: urlS3,
+                    method: 'POST',
+                    data: {
+                        //some video file
+                    },
+                    headers: {
+                        //'Authorization': 'Bearer ' + accessToken,
+                        'Content-Type' : 'application/x-www-form-urlencoded'
+                    },
+                    transformRequest: function(obj) {
+                        var str = [];
+                        for(var p in obj)
+                            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                        return str.join("&");
+                    }
+                })
+                  .success(function(data,status,headers,config){
+                    console.log("post video success status: "+status);
+                    postVideoInfo();
+                })
+                  .error(function(data,status,headers,config){
+                    console.log("post video error status: "+status);
+                });
+            }
+
+
             //Open the camera to take a video
             $scope.getVideo = function() {
 
@@ -115,7 +166,8 @@ angular.module('starter.controllers', [])
                             $scope.lastVideo = mediaFiles[0].fullPath;
                             alert("d" + $scope.lastVideo);
                             //upload video file with vendor id and activity id
-                            upload($scope.lastVideo);
+                            //upload($scope.lastVideo);
+                            postVideo();
                         }
                     }, function(error) {
                     var msg = 'An error occurred during capture: ' + error.code;

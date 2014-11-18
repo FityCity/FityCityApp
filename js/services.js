@@ -616,16 +616,16 @@ angular.module('starter.services', [])
             })
            .error(function(data,status,headers,config){
             console.log("error status: "+status);
-            if (status===401){
-                tokenRefresh(function() {
-                    request({
-                        url: datas.url,
-                        method: datas.method,
-                        params: datas.params,
-                        type: datas.type
-                    },callback);
-                });
-            }
+            // if (status===401){
+            //     tokenRefresh(function() {
+            //         request({
+            //             url: datas.url,
+            //             method: datas.method,
+            //             params: datas.params,
+            //             type: datas.type
+            //         },callback);
+            //     });
+            // }
             if(typeof callback === 'function'){
                 callback(data,status,headers,config);
             }
