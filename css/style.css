@@ -1,14 +1,30 @@
 /* Empty. Add your own CSS if you like */
 
+@font-face {
+    font-family: "Padaloma";
+    src: url("../fonts/Padaloma.ttf") format("opentype");
+}
 
+@font-face {
+    font-family: "Verdana";
+    src: url("../fonts/verdana.ttf") format("opentype");
+}
+#loginheader{
+    background-color: #ffffff;
+}
 .bar.bar-positive{
     background-color: #84d3c9;
+    border: none;
+    border-color:transparent;
+    background-image: none;
+    border-style: none;
+    border-bottom: none;
 }
 .bar.bar-positive .title{
-    font-family: Padaloma;
-    font-weight: normal;
-    font-size: 20px;
-    margin-top: 5px;
+    font-family: Verdana;
+    font-weight: bolder;
+    font-size: 22px;
+    margin-top: 2px;
 }
 .tabs-striped.tabs-background-positive .tabs{
     background-color: #84d3c9;
@@ -162,5 +178,5 @@ a.item{
 }
 
 #loginpic{
-    margin-top: 15%;
+    margin-top: 10%;
 }
