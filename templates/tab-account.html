@@ -1,15 +1,15 @@
 <ion-view title="Fit eCity">
 
-    <ion-content class="has-header" ng-controller = "AccountCtrl as account">
+    <ion-content class="has-header" >
         <div class="account-content">
             <div class="account-info">
 
-            <img class="account-img" src="img/account/jen.png">
-            <h2>Jen Selter </h2>
+            <img class="account-img" src={{user.imgSrc}}>
+            <h2>{{user.name}}</h2>
             <!--<i class="icon ion-female"> follow me</i>-->
             </div>
         </div> 
-        <section>
+        <section ng-controller = "AccountCtrl as account">
             <div class="button-bar" >
 
                 <a class="button account-button" ng-click = "account.selectBtn(1)">Videos</a>

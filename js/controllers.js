@@ -23,7 +23,7 @@ angular.module('starter.controllers', [])
         })
 
         //Control the button bar in account page
-        .controller('AccountCtrl', function($scope, Vendors, MyActivities) {
+        .controller('AccountCtrl', function($scope, Vendors, MyActivities,Account) {
             // $scope.vendorPoints = VendorPoints.all();
             this.btn = 1;
             this.selectBtn = function(setBtn) {
@@ -34,6 +34,9 @@ angular.module('starter.controllers', [])
             };
             $scope.vendors = Vendors.all();
             $scope.myactivities = MyActivities.all();
+            $scope.user=Account.get();
+        console.log($scope.user);
+
         })
 
         //Update by Viola at 3/11 

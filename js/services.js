@@ -123,7 +123,20 @@ angular.module('starter.services', [])
                 }
             }
         })
-//new by yiwei 
+//new by yiwei
+        .factory('Account', function(){
+            var user={};
+                user.name='Jen Selter';
+                user.imgSrc="img/account/jen.png";
+        return{
+            get: function(){
+                return user;
+            }
+        }
+
+
+        })
+
         .factory('ActivityOthers', function() {
             var othersdoing = [
                 {id: 0,
