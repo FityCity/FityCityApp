@@ -24,7 +24,7 @@ angular.module('starter.controllers', [])
         })
 
         //Control the button bar in account page
-        .controller('AccountCtrl', function($scope, Vendors, MyActivities) {
+        .controller('AccountCtrl', function($scope, Vendors, MyActivities,Account) {
             // $scope.vendorPoints = VendorPoints.all();
             this.btn = 1;
             this.selectBtn = function(setBtn) {
@@ -35,9 +35,12 @@ angular.module('starter.controllers', [])
             };
             $scope.vendors = Vendors.all();
             $scope.myactivities = MyActivities.all();
+            $scope.user=Account.get();
+        console.log($scope.user);
+
         })
 
-        //Update by Viola at 3/11 
+        //Update by Viola at 3/11
         .controller('VendorDetailCtrl', function($ionicPopup,$scope, $state, $http, $ionicSlideBoxDelegate, $ionicModal, $stateParams, Vendors, Activities, ActivityOthers, Camera, Tabs, HttpService, Video) {
             // alert("Ok 1")
             $scope.vendor = Vendors.get($stateParams.vendorId);
@@ -50,7 +53,7 @@ angular.module('starter.controllers', [])
                 $scope.cards = activities;
                 $ionicSlideBoxDelegate.update();
             });
-            
+
             $ionicModal.fromTemplateUrl('templates/popup.html', {
                 scope: $scope
             }).then(function(modal) {
@@ -70,7 +73,44 @@ angular.module('starter.controllers', [])
             var user_id = "546d3ad8c15071ac158a8580";
             var vendor_id = $stateParams.vendorId;
 
-            //Open the camera to take a video
+            //refresh points
+            var refreshPoints = function(){
+                    var points = 0;
+                    switch ($scope.activity.difficulty){
+                        case "easy":
+                            points = 10;
+                            break;
+                        case "medium":
+                            points = 20;
+                            break;
+                        case "hard":
+                            points = 30;
+                            break;
+                        default:
+                    }
+
+
+                    HttpService.request(
+                    {
+                        url:"/points",
+                        method: 'POST',
+                        params: {
+                            userId: 1,
+                            vendorId: $scope.vendor._id,
+                            points: points
+                        }
+                    },
+                    function(data,status){
+                        if(status==200){
+                            console.log("points post successful");
+                        }else{
+                            console.log("points post fails");
+                        }
+                    }
+                );
+            }
+
+           //Open the camera to take a video
             $scope.getVideo = function(activity_id) {
 
                 Camera.getVideo().then(
