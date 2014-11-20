@@ -1,12 +1,20 @@
 angular.module('starter.controllers', [])
 
-        .controller('LoginCtrl', function($scope, $location, LoginService) {
-            $scope.login = function(event) {
-                LoginService.login(event)
+        .controller('LoginCtrl', function($scope, $location, LoginService,FacebookService) {
+        facebookConnectPlugin.getLoginStatus(
+            function (response) { 
+                $location.path("/tab/vendors") 
+            },
+            function (response) { 
             }
+        )
+        $scope.login = function(event) {
+            LoginService.login(event)
+        }
         })
 
         .controller('DashCtrl', function($scope) {
+            
         })
 
         .controller('TabCtrl', function($scope, Tabs) {
