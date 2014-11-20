@@ -73,41 +73,50 @@ angular.module('starter.controllers', [])
             var user_id = "546d3ad8c15071ac158a8580";
             var vendor_id = $stateParams.vendorId;
 
-            //refresh points
-            var refreshPoints = function(){
-                    var points = 0;
-                    switch ($scope.activity.difficulty){
-                        case "easy":
-                            points = 10;
-                            break;
-                        case "medium":
-                            points = 20;
-                            break;
-                        case "hard":
-                            points = 30;
-                            break;
-                        default:
-                    }
+            var points=0;
 
+            var uploadPoints = function(difficulty){
+                switch (difficulty){
+                    case "easy":
+                        points = 10;
+                        break;
+                    case "medium":
+                        points = 20;
+                        break;
+                    case "hard":
+                        points = 30;
+                        break;
+                    default:
+                }
 
-                    HttpService.request(
-                    {
-                        url:"/points",
-                        method: 'POST',
-                        params: {
-                            userId: 1,
-                            vendorId: $scope.vendor._id,
-                            points: points
-                        }
-                    },
-                    function(data,status){
-                        if(status==200){
-                            console.log("points post successful");
-                        }else{
-                            console.log("points post fails");
-                        }
+                HttpService.request(
+                {
+                    url:"/points",
+                    method:'POST',
+                    params:{
+                        user_id: user_id,
+                        vendor_id: $scope.vendor._id,
+                        points: points
                     }
+                },
+                function(data,status){
+                    if(status==200){
+                        console.log("points sent ok");
+                    }else{
+                        console.log("points sent fail, "+status);
+                    }
+                }
                 );
+            }
+
+            var onSuccess = function(msg){
+                console.log("uploadVideo ok, "+msg);
+                console.log("activity");
+                uploadPoints("easy");
+            }
+
+            var onError = function(msg){
+                console.log("uploadVideo fail, "+msg);
             }
 
            //Open the camera to take a video
@@ -125,7 +134,7 @@ angular.module('starter.controllers', [])
                                 activity_id: activity_id
                             };
 
-                            Video.upload(mediaFiles[0].fullPath, metaData);
+                            Video.upload(mediaFiles[0].fullPath,metaData,onSuccess,onError);
                             $state.go('tab.account');
                         }
                     }, function(error) {
