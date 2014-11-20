@@ -34,7 +34,7 @@
             </div> -->
 		  </div>
 		  <div class="item tabs tabs-secondary tabs-icon-left">
-		    <a ng-click = "getVideo()" class="tab-item" href="#">
+		    <a ng-click = "getVideo(card._id)" class="tab-item" href="#">
 		      <i class="icon ion-thumbsup"></i>
 		      sweat
 		    </a>
@@ -43,9 +43,12 @@
 		      See others doing it
 		    </a>
 		  </div>
-		</div>
+        </div>
+          <button ng-click="testUpload()">upload</button>
 	  </ion-slide>
+
 	</ion-slide-box>
-	</div>>
+	</div>
+    
   </ion-content>
 </ion-view>
