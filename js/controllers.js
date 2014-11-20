@@ -14,8 +14,9 @@ angular.module('starter.controllers', [])
             console.log("TabCtrl loaded");
         })
 
-        .controller('VendorsCtrl', function($scope, Vendors, Tabs) {
+        .controller('VendorsCtrl', function($scope, Vendors, Tabs, Video) {
             $scope.vendors = Vendors.all();
+            Video.hello();
         })
 
         .controller('EventsCtrl', function($scope, Events, $ionicSlideBoxDelegate) {
@@ -37,7 +38,7 @@ angular.module('starter.controllers', [])
         })
 
         //Update by Viola at 3/11 
-        .controller('VendorDetailCtrl', function($ionicPopup,$scope, $ionicSlideBoxDelegate, $ionicModal, $stateParams, Vendors, Activities, ActivityOthers, Camera, Tabs,HttpService) {
+        .controller('VendorDetailCtrl', function($ionicPopup,$scope, $state, $http, $ionicSlideBoxDelegate, $ionicModal, $stateParams, Vendors, Activities, ActivityOthers, Camera, Tabs, HttpService, Video) {
             // alert("Ok 1")
             $scope.vendor = Vendors.get($stateParams.vendorId);
             console.log("Vendor", $scope.vendor, $stateParams);
@@ -66,108 +67,26 @@ angular.module('starter.controllers', [])
                 $scope.modal.show();
             };
 
-            
-            //uploading video
-            var upload = function (videoURI) {
-                if(window.hasOwnProperty("FileUploadOptions")){
-                    var options = new FileUploadOptions();
-                    options.fileKey = "file";
-                    //create a unique file name based on the timestamp, use this in the server for time information, or time metadata in the video clip itself.
-                    options.fileName = "" + (new Date()).valueOf() + ".mov";
-                    options.mimeType = "video/mov";
-                    options.httpMethod = "POST";
-                    var ft = new FileTransfer();
-                    //this is needed to grab the file correctly on IOS
-                    videoURI = 'file://' + videoURI;  
-                    ft.upload(videoURI, "http://fitecity.herokuapp.com/videos?"+
-                        "vendorId="+$scope.vendor._id+
-                        "&activityId="+$scope.activity._id, 
-                        postSuccess, postFailure, options, true); //boolean is for trustAllHosts
-                }
-            };
-
-            //upload succeed, get the video           
-            var postSuccess = function (response) {
-                $ionicPopup.alert({
-                    title: "upload succeeded!"
-                });
-                console.log("upload succeeded");
-            };
-
-            var postFailure = function (error) {
-                 $ionicPopup.alert({
-                    title: "upload failed!"
-                 });
-                 console.log("upload failed");
-            };
-              //call the upload function above with the video path on the scope
-              // upload($scope.video);
-            
-            //post video to the s3
-            var urlS3;
-            var postVideoInfo = function(){
-                HttpService.request(
-                    {
-                        url:"",
-                        method: 'POST',
-                        params: {
-                            vendorId: $scope.vendor._id,
-                            activity: $scope.activity._id,
-                            //user info here
-                            //video time stamp here
-                        }
-                    },
-                    function(data,status){
-                        if(status==200){
-                            console.log("video info post successful");   
-                        }else{
-                            console.log("video info post fails");
-                        }
-                    }
-                );
-            }
-            var postVideo = function(){
-                  $http({
-                    url: urlS3,
-                    method: 'POST',
-                    data: {
-                        //some video file
-                    },
-                    headers: {
-                        //'Authorization': 'Bearer ' + accessToken,
-                        'Content-Type' : 'application/x-www-form-urlencoded'
-                    },
-                    transformRequest: function(obj) {
-                        var str = [];
-                        for(var p in obj)
-                            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-                        return str.join("&");
-                    }
-                })
-                  .success(function(data,status,headers,config){
-                    console.log("post video success status: "+status);
-                    postVideoInfo();
-                })
-                  .error(function(data,status,headers,config){
-                    console.log("post video error status: "+status);
-                });
-            }
-
+            var user_id = "546d3ad8c15071ac158a8580";
+            var vendor_id = $stateParams.vendorId;
 
             //Open the camera to take a video
-            $scope.getVideo = function() {
+            $scope.getVideo = function(activity_id) {
 
                 Camera.getVideo().then(
                     //get the video Files in URI
                     function(mediaFiles) {
                         var i, len;
                         for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-                            alert(mediaFiles[i].fullPath);
-                            $scope.lastVideo = mediaFiles[0].fullPath;
-                            alert("d" + $scope.lastVideo);
-                            //upload video file with vendor id and activity id
-                            //upload($scope.lastVideo);
-                            postVideo();
+
+                            var metaData = {
+                                user_id: user_id,
+                                vendor_id: $stateParams.vendorId,
+                                activity_id: activity_id
+                            };
+
+                            Video.upload(mediaFiles[0].fullPath, metaData);
+                            $state.go('tab.account');
                         }
                     }, function(error) {
                     var msg = 'An error occurred during capture: ' + error.code;

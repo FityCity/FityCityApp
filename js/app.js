@@ -5,8 +5,13 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ionic.contrib.ui.cards'])
-//
+angular.module('starter', [
+    'ionic', 
+    'starter.controllers', 
+    'starter.services', 
+    'ionic.contrib.ui.cards',
+    'com.fitecity.video'
+    ])
         .config(function($compileProvider) {
             $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
         })
