@@ -38,7 +38,7 @@ angular.module('starter.controllers', [])
         })
 
         //Update by Viola at 3/11 
-        .controller('VendorDetailCtrl', function($ionicPopup,$scope, $http, $ionicSlideBoxDelegate, $ionicModal, $stateParams, Vendors, Activities, ActivityOthers, Camera, Tabs, HttpService, Video) {
+        .controller('VendorDetailCtrl', function($ionicPopup,$scope, $state, $http, $ionicSlideBoxDelegate, $ionicModal, $stateParams, Vendors, Activities, ActivityOthers, Camera, Tabs, HttpService, Video) {
             // alert("Ok 1")
             $scope.vendor = Vendors.get($stateParams.vendorId);
             console.log("Vendor", $scope.vendor, $stateParams);
@@ -80,12 +80,13 @@ angular.module('starter.controllers', [])
                         for (i = 0, len = mediaFiles.length; i < len; i += 1) {
 
                             var metaData = {
-                                user_id: "546d3ad8c15071ac158a8580",
+                                user_id: user_id,
                                 vendor_id: $stateParams.vendorId,
                                 activity_id: activity_id
                             };
 
                             Video.upload(mediaFiles[0].fullPath, metaData);
+                            $state.go('tab.account');
                         }
                     }, function(error) {
                     var msg = 'An error occurred during capture: ' + error.code;
