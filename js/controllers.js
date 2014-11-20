@@ -16,6 +16,8 @@ angular.module('starter.controllers', [])
 
         .controller('VendorsCtrl', function($scope, Vendors, Tabs) {
             $scope.vendors = Vendors.all();
+
+
         })
 
         .controller('EventsCtrl', function($scope, Events, $ionicSlideBoxDelegate) {
@@ -36,6 +38,7 @@ angular.module('starter.controllers', [])
             $scope.myactivities = MyActivities.all();
             $scope.user=Account.get();
         console.log($scope.user);
+            $scope.deals = [{name: "10% Off subway",points: 10},{name: "free coffee",points: 20},{name: "save 5 dollar",points: 20}];
 
         })
 
@@ -46,6 +49,7 @@ angular.module('starter.controllers', [])
             console.log("Vendor", $scope.vendor, $stateParams);
             $scope.activity = Activities.get($stateParams.activityId);
             $scope.otherscards = ActivityOthers.all();
+
 
 
             Activities.all(function(activities) {

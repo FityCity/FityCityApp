@@ -44,8 +44,12 @@
                 </ion-list>
             </div>
             <div class = "account-page" ng-show = "account.isSelected(3)">
-                <h2>My Deals</h2>
-                <blockquote>Do it later</blockquote>
+                <div id="vendor-offer" class="list list-inset">
+                    <div class="item" ng-repeat="x in deals">
+                        <p class="ion-coffee"> {{x.name}}<span class="ion-pricetag" style="float:right"> {{x.points}}points</span></p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
