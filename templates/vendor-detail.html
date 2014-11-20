@@ -1,21 +1,30 @@
 <ion-view title="Details">
   <ion-content has-header="true" padding="false">
   	<ion-list>
- 	    <div class="item item-avatar">
+ 	    <div id="vendor-avatar" class="item item-avatar" ng-click="popup()">
 			<div style="display: inline-block;width: 20%;">
 				<img id="vendor-detail-img" ng-src="{{vendor.image_url}}">
 			</div>
 			<div id="vendor-detail">
 				<h2 id="vendor-detail-name">{{vendor.name}}</h2>
 				<p id="vendor-detail-des" style="white-space: normal;">{{vendor.address}}</p>
+				<p>  </p>
 			</div>
 		</div>
-		<div class="item item-divider" ng-click="popup()">Offers</div>
-		<ion-list ng-repeat="x in vendor.offers">
-          <div class="item">
-            <p class="ion-coffee"> {{x.name}}<span class="ion-pricetag" style="float:right"> {{x.points}}points</span></p> 
-          </div>
-  	    </ion-list>
+		<div id="vendor-offer" class="list list-inset">
+			<div class="item item-divider">Offer</div>
+			<div class="item" ng-repeat="x in vendor.offers">
+				<p class="ion-coffee"> {{x.description}}<span class="ion-pricetag" style="float:right"> {{x.points}}points</span></p>
+				</div>
+		</div>
+
+		<!--<div style="border-color: transparent;" class="item item-divider" >Offers</div>-->
+		<!--&lt;!&ndash;<ion-list ng-repeat="x in vendor.offers">&ndash;&gt;-->
+		<!--<ion-list ng-repeat="x in offers">-->
+          <!--<div style="border-top-color:transparent;" class="item">-->
+            <!--<p class="ion-coffee"> {{x.name}}<span class="ion-pricetag" style="float:right"> {{x.points}}points</span></p> -->
+          <!--</div>-->
+  	    <!--</ion-list>-->
   	</ion-list>
 <div  class="vendor-detail">
   	<ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="true" does-continue="true">
@@ -34,21 +43,20 @@
             </div> -->
 		  </div>
 		  <div class="item tabs tabs-secondary tabs-icon-left">
-		    <a ng-click = "getVideo(card._id)" class="tab-item">
-		      <i class="icon ion-thumbsup"></i>
-		      sweat
+		    <a id="vendor-detail-act-tab1" ng-click = "getVideo(card._id)" class="act-tab-item tab-item">
+		      <i class="icon ion-ios7-camera-outline"></i>
+		      Do it
 		    </a>
-		    <a class="tab-item" href="#/tab/vendor/0/1">
-		      <i class="icon ion-thumbsdown"></i>
-		      See others doing it
+		    <a id="vendor-detail-act-tab2" class="tab-item" href="#/tab/vendor/0/1">
+		      <i class="icon ion-ios7-people-outline"></i>
+		      Others doing it
 		    </a>
 		  </div>
         </div>
-          <button ng-click="testUpload()">upload</button>
+          <!--<button ng-click="testUpload()">upload</button>-->
 	  </ion-slide>
 
 	</ion-slide-box>
 	</div>
-    
   </ion-content>
 </ion-view>

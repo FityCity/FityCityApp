@@ -1,6 +1,6 @@
 angular.module('starter.services', [])
         .factory('FacebookService', function() {
-
+            var token = "testToken";
             return{
                 getUserProfile: function() {
                     facebookConnectPlugin.api("/me", ["public_profile", "user_birthday"],
@@ -10,13 +10,7 @@ angular.module('starter.services', [])
                             function(response) {
                                 alert(JSON.stringify(response))
                             });
-                }
-
-            }
-        })
-        .factory('FacebookTokenService', function() {
-            var token = "testToken";
-            return{
+                },
                 getToken: function() {
                     return token;
                 },
@@ -25,7 +19,10 @@ angular.module('starter.services', [])
                 }
             }
         })
-        .factory('LoginService', function($location, FacebookTokenService) {
+        .factory('FacebookTokenService', function() {
+            
+        })
+        .factory('LoginService', function($location, FacebookService) {
             var self = {};
             self.login = function(event) {
                 var target = event.target;
@@ -39,7 +36,7 @@ angular.module('starter.services', [])
                     facebookConnectPlugin.login(["email", "public_profile", "user_birthday"],
                             function(response) {
                                 alert(JSON.stringify(response))
-                                FacebookTokenService.setToken(response.authResponse.accessToken)
+                                FacebookService.setToken(response.authResponse.accessToken)
                                 $location.path("/tab/vendors")
                             },
                             function(response) {
@@ -564,10 +561,10 @@ angular.module('starter.services', [])
             }
         })
 
-    .factory('HttpService',function($http,FacebookTokenService){
+    .factory('HttpService',function($http,FacebookService){
     //server ip and port
     var server = 'http://fitecity.herokuapp.com';
-    var accessToken = FacebookTokenService.getToken();
+    var accessToken = FacebookService.getToken();
 
   
 

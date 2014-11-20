@@ -103,12 +103,12 @@ a.item{
 .account-content{
     position:relative;
     background-color: #ffffff;
-    margin-top: 100px;
+    margin-top: 95px;
     box-shadow: 0px -1px 20px rgba(0,0,0,0.4);
     padding-top: 50px;
     margin-bottom: 0px;
     padding-bottom: 0px;
-    height: 130px;
+    height: 110px;
     font-family: Verdana;
 }
 .account-info{
@@ -118,6 +118,9 @@ a.item{
     z-index:2;
     text-align: center;
     margin: 0px auto;
+}
+.account-info > h2{
+    margin-top:10px;
 }
 .account-img{
     /*position:relative;*/
@@ -144,10 +147,20 @@ a.item{
 .button-bar > .button:last-child{
     /*border-radius: 5px 0px 0px 5px;*/
 }
-#video-card #activities-card{
+#video-card {
     margin-top:15px ;
     margin-bottom: 20px;
-    box-shadow: 0px 2px 2px 1px rgba(200,200,200,0.7);
+    box-shadow: 0px 3px 2px 1px rgba(200,200,200,0.7);
+}
+#activities-card{
+    margin-top:20px ;
+    margin-bottom: 20px;
+    box-shadow: 0px 3px 2px 1px rgba(200,200,200,0.7);
+}
+#events-card{
+    margin-top:15px ;
+    margin-bottom: 20px;
+    box-shadow: 0px 3px 2px 1px rgba(200,200,200,0.7);
 }
 .vendor-detail{
     height: 350px;
@@ -160,6 +173,13 @@ a.item{
 
 .item{
     font-family: Verdana;
+    /*border-color: #9bdad2;*/
+    /*box-shadow: 0px 1px 0px 0px rgba(170,210,200,0.9);*/
+
+}
+.item h2{
+    font-weight: bold;
+    coler: #555555;
 }
 
 #imgavatar{
@@ -180,4 +200,24 @@ a.item{
 
 #loginpic{
     margin-top: 10%;
+}
+#vendor-detail-act-tab1{
+    color: #d4fff6;
+    font-size: 15px;
+    margin-left:-20px;
+}
+#vendor-detail-act-tab2{
+    color: #d4fff6;
+    font-size: 15px;
+    margin-right:10px;
+
+}
+#vendor-img{
+    /*margin:auto auto;???*/
+}
+#vendor-offer{
+    margin-top: 5px;
+}
+#vendor-avatar{
+    border-color: transparent;
 }
