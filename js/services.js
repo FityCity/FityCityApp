@@ -564,7 +564,7 @@ angular.module('starter.services', [])
     .factory('HttpService',function($http,FacebookTokenService){
     //server ip and port
     var server = 'http://fitecity.herokuapp.com';
-    var accessToken = FacebookTokenService.getToken();
+    var accessToken = FacebookService.getToken();
 
   
 
