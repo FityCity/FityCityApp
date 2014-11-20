@@ -14,11 +14,11 @@
     background-color: #84d3c9;
 }
 ion-content{
-    background-color: #4a5055;
+    background-color: #5886AD;
 
 }
 .list{
-    background-color: rgba(255,255,255,0.9);
+    background:transparent;
 }
 a.item{
     background-color: rgba(255,255,255,0.9);
