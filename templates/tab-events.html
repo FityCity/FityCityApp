@@ -9,11 +9,16 @@
                 <div class="list card">
 
                     <div class="item item-avatar">
-                        <img src="/img/acclogo.png">
-                        <h2>{{card.title}}</h2>
-                        <p>{{card.date}}, {{card.time}}</p>
+                        <div style="display: inline-block;width: 20%;">
+                            <img id="imgavatar" src="/img/acclogo.png">
+                        </div>
+                        <div id="eventdetail">
+                            <h2 id="eventname">{{card.title}}</h2>
+                            <p style="white-space: normal;">{{card.date}}, {{card.time}}</p>
+                        </div>
 
                     </div>
+
 
                     <div class="item item-body">
                         <img class="full-image" ng-src="{{card.image_url}}">

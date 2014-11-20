@@ -14,7 +14,7 @@
     background-color: #84d3c9;
 }
 ion-content{
-    background-color: #4a5055;
+    background-color: #ffffff;
 
 }
 .list{
@@ -26,6 +26,9 @@ a.item{
 }
 .item-avatar{
     padding-left:10px;
+}
+.item-divider{
+
 }
 #vendor-detail-img{
     position:relative;
@@ -139,4 +142,20 @@ a.item{
 
 .item{
     font-family: Verdana;
+}
+
+#imgavatar{
+    position:relative;
+    max-height: 70px;
+    max-width: 70px;
+}
+#eventdetail{
+    display: inline-block;
+    margin-left:10px;
+    width: 70%;
+    line-height: 15px;
+    padding-top:10px;
+}
+#eventname{
+    font-size: 18px;
 }
