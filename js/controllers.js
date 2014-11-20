@@ -69,6 +69,42 @@ angular.module('starter.controllers', [])
                 $scope.modal.show();
             };
 
+            //refresh points
+            var refreshPoints = function(){
+                    var points = 0;
+                    switch ($scope.activity.difficulty){
+                        case "easy":
+                            points = 10;
+                            break;
+                        case "medium":
+                            points = 20;
+                            break;
+                        case "hard":
+                            points = 30;
+                            break;
+                        default:
+                    }
+
+
+                    HttpService.request(
+                    {
+                        url:"/points",
+                        method: 'POST',
+                        params: {
+                            userId: 1,
+                            vendorId: $scope.vendor._id,
+                            points: points
+                        }
+                    },
+                    function(data,status){
+                        if(status==200){
+                            console.log("points post successful");   
+                        }else{
+                            console.log("points post fails");
+                        }
+                    }
+                );
+            }
             
             //uploading video
             var upload = function (videoURI) {
@@ -170,7 +206,7 @@ angular.module('starter.controllers', [])
                             alert("d" + $scope.lastVideo);
                             //upload video file with vendor id and activity id
                             //upload($scope.lastVideo);
-                            postVideo();
+                            //postVideo();
                         }
                     }, function(error) {
                     var msg = 'An error occurred during capture: ' + error.code;
