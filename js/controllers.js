@@ -161,9 +161,7 @@ angular.module('starter.controllers', [])
                             console.log(mediaFiles[0]);
                             MyActivities.add(
                                 {
-                                    title: $scope.vendor,
-                                    description: "Have you ever wanted to go shopping with your very own personal stylist? Learn how to dress well on any budget with a Personal Styling Session from Clothed.",
-                                    image_url: mediaFiles[0],
+                                    title: $scope.activity,
                                     date: "Every Saturday",
                                     time: "11:00am - 2:00pm",
                                     venue: "Starts at King William Road"
