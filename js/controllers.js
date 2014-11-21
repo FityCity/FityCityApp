@@ -162,7 +162,10 @@ angular.module('starter.controllers', [])
                                 {
                                     title: title,
                                     description: description,
-                                    image_url: mediaFiles[0].fullPath                               }
+                                    date: "Today",
+                                    time: "Just now",
+                                    image_url: "http://www.trentdigital.com/wp-content/uploads/2013/10/video-play.jpg"
+                                }
                             );
                             console.log("acts "+MyActivities.all());
                             //-----

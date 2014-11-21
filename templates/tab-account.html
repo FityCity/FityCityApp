@@ -24,7 +24,7 @@
                             <div class="item item-avatar">
                                 <h2>{{card.title}}</h2>
                                 <p>{{card.date}}, {{card.time}}</p>
-                                <p>{{card.venue}}</p>
+                                <p>{{card.description}}</p>
                             </div>
                             <div class="item item-body">
                                 <img class="full-image" ng-src="{{card.image_url}}">
@@ -38,6 +38,10 @@
                 <ion-list>
                     <a ng-repeat="x in vendors | orderBy:'name':reverse" class="item item-thumbnail-left"  >
                         <img ng-src="{{x.image_url}}">
+                      <!--   <video width="320" height="240" controls>
+ <source ng-src="{{x.image_url}}"
+ type="video/mp4">
+</video> -->
                         <h2>{{x.name}}</h2>
                         <p>{{x.points}} points useable</p>
                     </a>
