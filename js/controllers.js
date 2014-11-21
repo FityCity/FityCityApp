@@ -111,7 +111,18 @@ angular.module('starter.controllers', [])
                 function(data,status){
                     if(status==200){
                         console.log("points sent ok");
-                    }else{
+                        $ionicPopup.alert(
+                            {
+                                title: "Upload succeeded",
+                                subTitle:  "You get "+points+"points!"
+                            }
+                        );
+                        }else{
+                        $ionicPopup.alert(
+                            {
+                                title: "Upload failed"
+                            }   
+                        );
                         console.log("points sent fail, "+status);
                     }
                 }
