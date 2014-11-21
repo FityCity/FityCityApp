@@ -1,7 +1,7 @@
 <ion-view title="Fit eCity" >
   <ion-content >
     <ion-list>
-      <a ng-repeat="vendor in vendors" class="item item-thumbnail-left" href="#/tab/vendor/{{vendor._id}}">
+      <a ng-repeat="vendor in vendors | orderBy:'name':reverse" class="item item-thumbnail-left" href="#/tab/vendor/{{vendor._id}}">
         <img id="vendor-img" ng-src="{{vendor.image_url}}">
         <h2>{{vendor.name}}</h2>
         <p>{{vendor.address}}</p>

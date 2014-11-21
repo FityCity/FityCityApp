@@ -36,7 +36,7 @@
             </div>
             <div class = "account-page" ng-show = "account.isSelected(2)">
                 <ion-list>
-                    <a ng-repeat="x in vendors" class="item item-thumbnail-left" >
+                    <a ng-repeat="x in vendors | orderBy:'name':reverse" class="item item-thumbnail-left"  >
                         <img ng-src="{{x.image_url}}">
                         <h2>{{x.name}}</h2>
                         <p>{{x.points}} points useable</p>

@@ -197,6 +197,9 @@ angular.module('starter.services', [])
                 },
                 get: function(myActivitiesID) {
                     return myActivities[myActivitiesId];
+                },
+                add: function(a){
+                    myActivities.push(a);
                 }
             }
         })
@@ -415,6 +418,7 @@ angular.module('starter.services', [])
                 if(status == 200){
                     angular.forEach(data,function(item,index){
                         vendors[item._id] = item;
+                        vendors[item._id].points=0;
                         console.log(item);
                     });
                 }else{

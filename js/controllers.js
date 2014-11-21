@@ -156,6 +156,21 @@ angular.module('starter.controllers', [])
 
                             Video.upload(mediaFiles[0].fullPath,metaData,onSuccess,onError);
                             $state.go('tab.account');
+                            //not well done---
+                            $scope.vendor.points+=10;
+                            console.log(mediaFiles[0]);
+                            MyActivities.add(
+                                {
+                                    title: $scope.vendor,
+                                    description: "Have you ever wanted to go shopping with your very own personal stylist? Learn how to dress well on any budget with a Personal Styling Session from Clothed.",
+                                    image_url: mediaFiles[0],
+                                    date: "Every Saturday",
+                                    time: "11:00am - 2:00pm",
+                                    venue: "Starts at King William Road"
+                                }
+                            );
+                            console.log(MyActivities.all());
+                            //-----
                         }
                     }, function(error) {
                     var msg = 'An error occurred during capture: ' + error.code;
