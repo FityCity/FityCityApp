@@ -49,7 +49,7 @@ angular.module('starter.controllers', [])
         })
 
         //Update by Viola at 3/11
-        .controller('VendorDetailCtrl', function($ionicPopup,$scope, $state, $http, $ionicSlideBoxDelegate, $ionicModal, $stateParams, Vendors, Activities, ActivityOthers, Camera, Tabs, HttpService, Video) {
+        .controller('VendorDetailCtrl', function($ionicPopup,$scope, $state, $http, $ionicSlideBoxDelegate, $ionicModal, $stateParams, Vendors, Activities, ActivityOthers, Camera, Tabs, HttpService, Video, MyActivities) {
             // alert("Ok 1")
             $scope.vendor = Vendors.get($stateParams.vendorId);
             console.log("Vendor", $scope.vendor, $stateParams);
@@ -158,16 +158,12 @@ angular.module('starter.controllers', [])
                             $state.go('tab.account');
                             //not well done---
                             $scope.vendor.points+=10;
-                            console.log(mediaFiles[0]);
+                            console.log(mediaFiles[0].fullPath);
                             MyActivities.add(
                                 {
-                                    title: $scope.activity,
-                                    date: "Every Saturday",
-                                    time: "11:00am - 2:00pm",
-                                    venue: "Starts at King William Road"
-                                }
+                                    image_url: mediaFiles[0].fullPath                               }
                             );
-                            console.log(MyActivities.all());
+                            console.log("acts "+MyActivities.all());
                             //-----
                         }
                     }, function(error) {
