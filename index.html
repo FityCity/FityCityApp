@@ -121,7 +121,7 @@
                                 //var my_media = new Media("/android_asset/www/" + soundfile);
                                 //my_media.play();
                                 console.log('INLINE NOTIFICATION');
-                                alert('INLINE NOTIFICATION');
+                                alert('New Offer is Added');
                             }
                             else
                             {  // otherwise we were launched because the user touched a notification in the notification tray.
@@ -129,13 +129,13 @@
                                 {
                                     $("#app-status-ul").append('<li>--COLDSTART NOTIFICATION--' + '</li>');
                                     console.log('Received COLDSTART NOTIFICATION');
-                                    alert('Received COLDSTART NOTIFICATION');
+                                    alert('New Offer is Added');
                                 }
                                 else
                                 {
                                     $("#app-status-ul").append('<li>--BACKGROUND NOTIFICATION--' + '</li>');
                                     console.log('Received BACKGROUND NOTIFICATION');
-                                    alert('Received BACKGROUND NOTIFICATION');
+                                    alert('New Offer is Added');
                                 }
                             }
 
