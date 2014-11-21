@@ -9,7 +9,6 @@ angular.module('starter.controllers', [])
         //     }
         // )    
         $scope.login = function(event) {
-            alert("test")
             LoginService.login(event)
         }
         })
