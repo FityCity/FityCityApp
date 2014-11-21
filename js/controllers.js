@@ -1,14 +1,15 @@
 angular.module('starter.controllers', [])
 
         .controller('LoginCtrl', function($scope, $location, LoginService,FacebookService) {
-        facebookConnectPlugin.getLoginStatus(
-            function (response) { 
-                $location.path("/tab/vendors") 
-            },
-            function (response) { 
-            }
-        )
+        // facebookConnectPlugin.getLoginStatus(
+        //     function (response) { 
+        //         $location.path("/tab/vendors") 
+        //     },
+        //     function (response) { 
+        //     }
+        // )    
         $scope.login = function(event) {
+            alert("test")
             LoginService.login(event)
         }
         })
