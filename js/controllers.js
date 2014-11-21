@@ -139,9 +139,9 @@ angular.module('starter.controllers', [])
                 console.log("uploadVideo fail, "+msg);
             }
 
+      
            //Open the camera to take a video
-            $scope.getVideo = function(activity_id) {
-
+            $scope.getVideo = function(activity_id,title,description) {
                 Camera.getVideo().then(
                     //get the video Files in URI
                     function(mediaFiles) {
@@ -155,16 +155,19 @@ angular.module('starter.controllers', [])
                             };
 
                             Video.upload(mediaFiles[0].fullPath,metaData,onSuccess,onError);
-                            $state.go('tab.account');
-                            //not well done---
+                             //not well done---
                             $scope.vendor.points+=10;
                             console.log(mediaFiles[0].fullPath);
                             MyActivities.add(
                                 {
+                                    title: title,
+                                    description: description,
                                     image_url: mediaFiles[0].fullPath                               }
                             );
                             console.log("acts "+MyActivities.all());
                             //-----
+                            $state.go('tab.account');
+                           
                         }
                     }, function(error) {
                     var msg = 'An error occurred during capture: ' + error.code;
